@@ -1,4 +1,4 @@
-import * as Icons from '@heroicons/react/outline';
+import * as Icons from '@heroicons/react/solid';
 
 const Icon = ({ icon, className }) => {
   const { ...icons } = Icons;
