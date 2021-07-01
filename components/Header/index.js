@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 // Icons
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
@@ -14,14 +15,10 @@ export const siteTitle = 'Next.js Sample Website';
 
 const Header = () => {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState('/');
+  const router = useRouter();
 
   const toggleMenu = () => {
     setMenuIsOpen(!menuIsOpen);
-  };
-
-  const handleMenuClick = (path) => {
-    setCurrentPage(path);
   };
 
   return (
@@ -65,16 +62,14 @@ const Header = () => {
                   <Link href={link.path} key={link.path} passHref>
                     <a
                       href="placeholder"
-                      onClick={() => {}}
-                      onKeyPress={() => handleMenuClick(link.path)}
                       className={`
                         ${
-                          link.path === currentPage
+                          link.path === router.pathname
                             ? 'bg-gray-900 text-white'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                         } px-3 py-2 rounded-md text-sm font-medium`}
                       aria-current={
-                        link.path === currentPage ? 'page' : undefined
+                        link.path === router.pathname ? 'page' : undefined
                       }
                     >
                       {link.label}
@@ -94,14 +89,15 @@ const Header = () => {
               <Link href={link.path} key={index} passHref>
                 <a
                   href="placeholder"
-                  onClick={() => handleMenuClick(link.path)}
                   className={`
                         ${
-                          link.path === currentPage
+                          link.path === router.pathname
                             ? 'bg-gray-900 text-white'
                             : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                         } block px-3 py-2 rounded-md text-base font-medium`}
-                  aria-current={link.path === currentPage ? 'page' : undefined}
+                  aria-current={
+                    link.path === router.pathname ? 'page' : undefined
+                  }
                 >
                   {link.label}
                 </a>

@@ -23,16 +23,28 @@ const Home = ({ allPostsData }) => (
       </h2>
       <p className="font-normal">Compare thousands of bikes here!</p>
     </section>
-    <section className={`${variables.sitePadding} md:flex md:flex-row `}>
-      <Card color="blue-500" icon="DatabaseIcon" title="Massive Database">
-        <p>Search and compare thousands of bikes!</p>
-      </Card>
-      <Card color="yellow-500" icon="AdjustmentsIcon" title="Comparison Tools">
-        <p>Search and compare thousands of bikes!</p>
-      </Card>
-      <Card color="green-500" icon="ChatIcon" title="Helpful Insights">
-        <p>Search and compare thousands of bikes!</p>
-      </Card>
+    <section
+      className={`${variables.sitePadding} md:flex md:flex-row md:-mx-2`}
+    >
+      <div className="md:w-1/3 p-2">
+        <Card color="blue-500" icon="DatabaseIcon" title="Massive Database">
+          <p>Search and compare thousands of bikes!</p>
+        </Card>
+      </div>
+      <div className="md:w-1/3 p-2">
+        <Card
+          color="yellow-500"
+          icon="AdjustmentsIcon"
+          title="Comparison Tools"
+        >
+          <p>Search and compare thousands of bikes!</p>
+        </Card>
+      </div>
+      <div className="md:w-1/3 p-2">
+        <Card color="green-500" icon="ChatIcon" title="Helpful Insights">
+          <p>Search and compare thousands of bikes!</p>
+        </Card>
+      </div>
     </section>
     <section className={variables.sitePadding}>
       <h2 className="text-2xl font-black uppercase tracking-wider">Blog</h2>
