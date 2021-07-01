@@ -1,0 +1,13 @@
+.container {
+  ul {
+    @apply m-6 list-disc;
+
+    li {
+      @apply p-1 italic font-bold;
+    }
+  }
+
+  p {
+    @apply mb-4;
+  }
+}

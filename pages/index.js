@@ -1,43 +1,69 @@
-import Head from 'next/head'
-import { getSortedPostsData } from '../lib/posts'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
-import Date from '../components/date'
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import {
+  DatabaseIcon,
+  AdjustmentsIcon,
+  ChatIcon,
+} from '@heroicons/react/solid';
+import { getSortedPostsData } from '../lib/posts';
+import Layout from '../components/Layout';
+import Card from '../components/Card';
+import Date from '../components/Date';
 
-const Home = ({allPostsData}) => {
-  return (
-    <Layout home>
-      {/* Keep the existing code here */}
+// Icons
 
-      {/* Add this <section> tag below the existing <section> tag */}
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-  <Link href={`/posts/${id}`}>
-    <a>{title}</a>
-  </Link>
-  <br />
-  <small className={utilStyles.lightText}>
-    <Date dateString={date} />
-  </small>
-</li>
-          ))}
-        </ul>
-      </section>
-    </Layout>
-  )
-}
+// Styles
+import { variables } from '../styles/style-variables';
+
+const Home = ({ allPostsData }) => (
+  <Layout>
+    <section className="bg-gradient-to-br from-gray-700 to-gray-800 p-12 md:p-16 text-white font-bold text-center ">
+      <h2 className="text-3xl md:text-4xl mb-4">
+        Looking for a Scrambler eBike?
+      </h2>
+      <p className="font-normal">Compare thousands of bikes here!</p>
+    </section>
+    <section className={`${variables.sitePadding} md:flex md:flex-row `}>
+      <Card color="blue-500" icon="DatabaseIcon" title="Massive Database">
+        <p>Search and compare thousands of bikes!</p>
+      </Card>
+      <Card color="yellow-500" icon="AdjustmentsIcon" title="Comparison Tools">
+        <p>Search and compare thousands of bikes!</p>
+      </Card>
+      <Card color="green-500" icon="ChatIcon" title="Helpful Insights">
+        <p>Search and compare thousands of bikes!</p>
+      </Card>
+    </section>
+    <section className={variables.sitePadding}>
+      <h2 className="text-2xl font-black uppercase tracking-wider">Blog</h2>
+      <ul>
+        {allPostsData.map(({ id, date, title }) => (
+          <li key={id}>
+            <Link href={`/posts/${id}`} passHref>
+              <a href="placeholder">{title}</a>
+            </Link>
+            <br />
+            <small>
+              <Date dateString={date} />
+            </small>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </Layout>
+);
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData
-    }
-  }
+      allPostsData,
+    },
+  };
 }
+
+Home.propTypes = {
+  allPostsData: PropTypes.arrayOf.isRequired,
+};
 
 export default Home;
