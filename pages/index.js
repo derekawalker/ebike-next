@@ -27,13 +27,17 @@ const Home = ({ allPostsData }) => (
       className={`${variables.sitePadding} md:flex md:flex-row md:-mx-2`}
     >
       <div className="md:w-1/3 p-2">
-        <Card color="blue-500" icon="DatabaseIcon" title="Massive Database">
+        <Card
+          color="text-blue-500"
+          icon="DatabaseIcon"
+          title="Massive Database"
+        >
           <p>Search and compare thousands of bikes!</p>
         </Card>
       </div>
       <div className="md:w-1/3 p-2">
         <Card
-          color="yellow-500"
+          color="text-yellow-500"
           icon="AdjustmentsIcon"
           title="Comparison Tools"
         >
@@ -41,7 +45,7 @@ const Home = ({ allPostsData }) => (
         </Card>
       </div>
       <div className="md:w-1/3 p-2">
-        <Card color="green-500" icon="ChatIcon" title="Helpful Insights">
+        <Card color="text-green-500" icon="ChatIcon" title="Helpful Insights">
           <p>Search and compare thousands of bikes!</p>
         </Card>
       </div>

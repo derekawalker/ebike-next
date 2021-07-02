@@ -1,6 +1,10 @@
 import _ from 'lodash';
 import Image from 'next/image';
+import Link from 'next/link';
+import { formatMoney } from 'accounting';
 import Layout from '../../components/Layout';
+import Stat from '../../components/Stat';
+import Icon from '../../components/Icon';
 
 // Styles
 import { variables } from '../../styles/style-variables';
@@ -22,23 +26,165 @@ export const getStaticProps = async ({ params }) => {
 const Bike = ({ bikes, params }) => {
   const bike = _.filter(bikes, (item) => item.bike_id === params.slug[2]);
   const thisBike = bike[0];
-  console.log(bike);
+
+  const supportingData = (
+    <div className="flex flex-wrap bg-white">
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat title="Front Tire" icon="XCircleIcon" color="text-gray-800">
+          {thisBike.front_tire}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat title="Rear Tire" icon="XCircleIcon" color="text-gray-800">
+          {thisBike.rear_tire}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat
+          title="Headlight"
+          icon="DotsCircleHorizontalIcon"
+          color="text-yellow-400"
+        >
+          {thisBike.headlight}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat
+          title="Brake Light"
+          icon="DotsCircleHorizontalIcon"
+          color="text-red-400"
+        >
+          {thisBike.brake_light}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat
+          title="Gears"
+          icon="DotsCircleHorizontalIcon"
+          color="text-red-400"
+        >
+          {thisBike.gears}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat
+          title="Motor Type"
+          icon="DotsCircleHorizontalIcon"
+          color="text-red-400"
+        >
+          {thisBike.motor_type}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat
+          title="Payload"
+          icon="DotsCircleHorizontalIcon"
+          color="text-red-400"
+        >
+          {thisBike.payload}
+        </Stat>
+      </div>
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat
+          title="Riders"
+          icon="DotsCircleHorizontalIcon"
+          color="text-red-400"
+        >
+          {thisBike.riders}
+        </Stat>
+      </div>
+    </div>
+  );
+
   return (
     <Layout>
-      <article>
-        <div className="relative h-96">
-          <Image
-            src={thisBike.image}
-            alt={thisBike.title}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
+      <div className="bg-gray-900  text-base font-medium">
+        <Link href="/bikes" passHref>
+          <a
+            href="placeholder"
+            className="text-white block px-3 py-2 flex block items-center"
+          >
+            <Icon icon="ChevronLeftIcon" className=" w-7 h-7" />
+            <span className="block">Back to Bikes</span>
+          </a>
+        </Link>
+      </div>
+
+      <article className="sm:flex sm:flex-row sm:flex-wrap ">
+        <div className={` sm:w-1/2 md:w-3/5 bg-white `}>
+          <div className="border-b ">
+            <Image
+              src={thisBike.image}
+              alt={thisBike.title}
+              layout="responsive"
+              width={3000}
+              height={2000}
+            />
+          </div>
+
+          <div className="hidden sm:block">{supportingData}</div>
         </div>
-        <div className={variables.sitePadding}>
-          <h1 className="text-2xl font-bold mb-3">{thisBike.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: thisBike.body }} />
+
+        <div className={`${variables.sitePadding} sm:w-1/2 md:w-2/5`}>
+          <h1 className="text-2xl font-bold ">{thisBike.title}</h1>
+          <h2 className="mb-2 text-gray-500 uppercase tracking-wider text-xs">
+            {thisBike.manufacturer}
+          </h2>
+          <div className="font-bold mb-3 text-xl">
+            {formatMoney(thisBike.price)}
+          </div>
+          <div className="flex flex-wrap">
+            <div className="w-1/2 sm:w-full lg:w-1/2">
+              <Stat title="Motor" icon="CogIcon" color="text-green-500">
+                {thisBike.motor} W
+              </Stat>
+            </div>
+            <div className="w-1/2 sm:w-full lg:w-1/2">
+              <Stat
+                title="Battery"
+                icon="LightningBoltIcon"
+                color="text-yellow-500"
+              >
+                {thisBike.battery} Ah
+              </Stat>
+            </div>
+            <div className="w-1/2 sm:w-full lg:w-1/2">
+              <Stat title="Volts" icon="LightningBoltIcon" color="text-red-500">
+                {thisBike.voltage} V
+              </Stat>
+            </div>
+            <div className="w-1/2 sm:w-full lg:w-1/2">
+              <Stat title="Range" icon="ArrowRightIcon" color="text-blue-500">
+                {thisBike.voltage} miles
+              </Stat>
+            </div>
+            <div className="w-1/2 sm:w-full lg:w-1/2">
+              <Stat
+                title="Top Speed"
+                icon="LightningBoltIcon"
+                color="text-purple-500"
+              >
+                {thisBike.top_speed} mph
+              </Stat>
+            </div>
+            <div className="w-1/2 sm:w-full lg:w-1/2">
+              <Stat
+                title="Suspension"
+                icon="ChartBarIcon"
+                color="text-gray-500"
+              >
+                {thisBike.suspension}
+              </Stat>
+            </div>
+
+            <div
+              className="mb-3 border-t border-gray-300 pt-3"
+              dangerouslySetInnerHTML={{ __html: thisBike.body }}
+            />
+          </div>
         </div>
+
+        <div className="block sm:hidden">{supportingData}</div>
       </article>
     </Layout>
   );

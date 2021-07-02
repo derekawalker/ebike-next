@@ -30,7 +30,7 @@ const Companies = ({ companies }) => (
               key={company.company_id}
               title={company.title}
               icon="CheckCircleIcon"
-              color="green-500"
+              color="text-green-500"
               image={company.image}
             >
               <div dangerouslySetInnerHTML={{ __html: company.body }} />

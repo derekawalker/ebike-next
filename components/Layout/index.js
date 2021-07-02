@@ -27,7 +27,12 @@ const Layout = ({ children }) => (
       <body />
     </Head>
     <Header />
-    <main>{children}</main>
+    <main className="bg-gray-200 text-black">{children}</main>
+    <footer
+      className={`${variables.sitePadding} bg-gray-800 text-base font-thin text-white text-center px`}
+    >
+      <p>Copyright eBikeScrambler.com. All Rights Reserved.</p>
+    </footer>
   </div>
 );
 

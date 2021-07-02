@@ -16,7 +16,7 @@ const Card = ({ icon, title, color, children, image }) => (
     )}
 
     {icon && (
-      <div className={`text-${color} bg-gray-800 text-center flex p-6`}>
+      <div className={`${color} bg-gray-800 text-center flex p-6`}>
         <Icon icon={icon} className="flex-grow w-16 h-16" />
       </div>
     )}
