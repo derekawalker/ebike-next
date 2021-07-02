@@ -1,10 +1,10 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: ["./pages/**/*.js", "./components/**/*.js"],
+  purge: ['./pages/**/*.js', './components/**/*.js', './styles/**/*.js'],
   theme: {
     fontFamily: {
-      sans: ["Lato", ...defaultTheme.fontFamily.sans],
+      sans: ['Lato', ...defaultTheme.fontFamily.sans],
     },
   },
 };

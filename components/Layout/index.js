@@ -28,11 +28,6 @@ const Layout = ({ children }) => (
     </Head>
     <Header />
     <main>{children}</main>
-    <div className={variables.sitePaddingX}>
-      <Link href="/">
-        <a>← Back to home</a>
-      </Link>
-    </div>
   </div>
 );
 

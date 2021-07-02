@@ -9,7 +9,7 @@ const BikeFilters = ({ filterSelections, setFilterSelections }) => {
   };
 
   return (
-    <div className="items-center flex -mx-2">
+    <div className="-mx-2">
       <form className="flex flex-wrap lg:block lg:w-full" id="bike-filters">
         <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
           <label

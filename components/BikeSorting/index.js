@@ -23,9 +23,9 @@ const BikeSorting = ({ sortSelections, setSortSelections }) => {
   };
 
   return (
-    <div className="items-center flex -mx-2">
-      <form className="flex flex-wrap lg:block lg:w-full" id="bike-filters">
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-1/5 lg:w-full">
+    <div className="-mx-2">
+      <form className="flex flex-wrap lg:block lg:w-full" id="bike-sorting">
+        <div className="flex flex-col p-2 w-1/2 sm:w-1/4 md:w-auto lg:w-full">
           <label
             className="uppercase text-xs font-bold tracking-wider"
             htmlFor="price"
@@ -52,7 +52,7 @@ const BikeSorting = ({ sortSelections, setSortSelections }) => {
           </select>
         </div>
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-1/5 lg:w-full">
+        <div className="flex flex-col p-2 w-1/2 sm:w-1/4 md:w-auto lg:w-full">
           <label
             className="uppercase text-xs font-bold tracking-wider"
             htmlFor="motor"

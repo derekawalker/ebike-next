@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
-import Layout from '../../../components/Layout';
-import Card from '../../../components/Card';
-import BikeFilters from '../../../components/BikeFilters';
-import BikeSorting from '../../../components/BikeSorting';
-import Icon from '../../../components/Icon';
+import Layout from '../../components/Layout';
+import Card from '../../components/Card';
+import BikeFilters from '../../components/BikeFilters';
+import BikeSorting from '../../components/BikeSorting';
+import Icon from '../../components/Icon';
+import { BikeContext } from '../../contexts/BikeContext';
 
 // Styles
-import { variables } from '../../../styles/style-variables';
+import { variables } from '../../styles/style-variables';
 
 const bikeUrl = 'https://ebikecompanies.com/drupal/api/bikes';
 
@@ -37,10 +38,16 @@ const Bikes = ({ bikes }) => {
     type: 'string',
     direction: 'asc',
   });
-  const [bikeState, setBikeState] = useState(bikes);
+  const [bikeState, setBikeState] = useContext(BikeContext);
+
+  useEffect(() => {
+    if (bikes) {
+      setBikeState({ bikes });
+    }
+  }, [bikeState.bikes]);
 
   // Apply filters.
-  let filteredBikes = bikeState;
+  let filteredBikes = bikeState.bikes;
 
   // Price.
   if (filterSelections.price !== '0') {
@@ -120,9 +127,19 @@ const Bikes = ({ bikes }) => {
 
   let bikeOutput = filteredBikes.map((bike) => (
     <div className="sm:w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
-      <Link href={`/bikes/${bike.manufacturer}/${bike.title}`} passHref>
+      <Link
+        href={`/bikes/${bike.manufacturer
+          .replace(/\s+/g, '-')
+          .toLowerCase()}/${bike.title.replace(/\s+/g, '-').toLowerCase()}/${
+          bike.bike_id
+        }`}
+        passHref
+      >
         <a href="placeholder">
           <Card title={bike.title} color="green-500" image={bike.image}>
+            <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
+              {bike.manufacturer}
+            </div>
             <div className="border rounded-3xl bg-white border-green-500 text-green-500 font-bold px-4 py-2 mb-3 text-lg">
               {formatMoney(bike.price)}
             </div>
