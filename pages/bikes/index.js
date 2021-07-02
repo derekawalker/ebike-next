@@ -165,14 +165,14 @@ const Bikes = ({ bikes }) => {
   }
 
   return (
-    <Layout>
+    <Layout title="Bikes">
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">eBikes</h1>
         <p>This is the bikes page.</p>
         <div className="lg:flex">
           <section className=" border-b border-gray-400 pb-2 mt-3 lg:w-1/5 lg:mr-5 lg:pr-5 lg:border-r lg:border-b-0 lg:py-0">
-            <div className="flex">
-              <Icon icon="FilterIcon" className="w-4 mr-1" />
+            <div className="flex items-center">
+              <Icon icon="FilterIcon" className="w-4 h-4 mr-1" />
               <h4 className="font-black tracking-wider uppercase">Filters:</h4>
             </div>
             <BikeFilters
@@ -180,8 +180,8 @@ const Bikes = ({ bikes }) => {
               setFilterSelections={setFilterSelections}
             />
 
-            <div className="flex mt-4 border-t pt-4 border-gray-400 border-dashed">
-              <Icon icon="SortAscendingIcon" className="w-4 mr-1" />
+            <div className="flex items-center mt-4 border-t pt-4 border-gray-400 border-dashed">
+              <Icon icon="SortAscendingIcon" className="w-4 h-4 mr-1" />
               <h4 className="font-black tracking-wider uppercase">Sort:</h4>
             </div>
             <BikeSorting

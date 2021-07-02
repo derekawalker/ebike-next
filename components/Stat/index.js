@@ -1,7 +1,7 @@
 import Icon from '../Icon';
 
 const Stat = ({ icon, title, color, children }) => (
-  <div className="flex border-t border-gray-300">
+  <div className="flex border-t  border-gray-400 border-opacity-25">
     {icon && (
       <div className={`${color} text-center flex py-3 pr-3`}>
         <Icon icon={icon} className="flex-grow w-10 h-10" />

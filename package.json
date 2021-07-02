@@ -15,6 +15,7 @@
     "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "next": "^10.0.0",
+    "nextjs-breadcrumbs": "^1.1.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",

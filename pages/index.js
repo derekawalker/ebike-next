@@ -16,16 +16,14 @@ import Date from '../components/Date';
 import { variables } from '../styles/style-variables';
 
 const Home = ({ allPostsData }) => (
-  <Layout>
+  <Layout title="Home" type="home">
     <section className="bg-gradient-to-br from-gray-700 to-gray-800 p-12 md:p-16 text-white font-bold text-center ">
       <h2 className="text-3xl md:text-4xl mb-4">
         Looking for a Scrambler eBike?
       </h2>
       <p className="font-normal">Compare thousands of bikes here!</p>
     </section>
-    <section
-      className={`${variables.sitePadding} md:flex md:flex-row md:-mx-2`}
-    >
+    <section className={`${variables.sitePadding} md:flex md:flex-row  `}>
       <div className="md:w-1/3 p-2">
         <Card
           color="text-blue-500"

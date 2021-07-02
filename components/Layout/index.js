@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Breadcrumbs from 'nextjs-breadcrumbs';
 import siteinfo from '../../lib/siteinfo';
 
 // Components
@@ -7,11 +8,15 @@ import Header from '../Header';
 
 // Styles
 import { variables } from '../../styles/style-variables';
+import styles from './styles.module.scss';
 
-const Layout = ({ children }) => (
+const Layout = ({ title, type, children }) => (
   <div>
     <Head>
       <link rel="icon" href="/favicon.ico" />
+      <title>
+        {title} | {siteinfo.title}
+      </title>
       <meta
         name="description"
         content="Learn how to build a personal website using Next.js"
@@ -27,6 +32,13 @@ const Layout = ({ children }) => (
       <body />
     </Head>
     <Header />
+    <div
+      className={`${styles.breadcrumbs} bg-gray-900 text-gray-400 ${
+        type === 'bike' ? styles.bike : undefined
+      }`}
+    >
+      <Breadcrumbs labelsToUppercase rootLabel="Home" />
+    </div>
     <main className="bg-gray-200 text-black">{children}</main>
     <footer
       className={`${variables.sitePadding} bg-gray-800 text-base font-thin text-white text-center px`}

@@ -28,7 +28,7 @@ const Bike = ({ bikes, params }) => {
   const thisBike = bike[0];
 
   const supportingData = (
-    <div className="flex flex-wrap bg-white">
+    <div className={`${variables.sitePadding} flex flex-wrap bg-white`}>
       <div className="w-1/2 sm:w-full md:w-1/2">
         <Stat title="Front Tire" icon="XCircleIcon" color="text-gray-800">
           {thisBike.front_tire}
@@ -97,19 +97,7 @@ const Bike = ({ bikes, params }) => {
   );
 
   return (
-    <Layout>
-      <div className="bg-gray-900  text-base font-medium">
-        <Link href="/bikes" passHref>
-          <a
-            href="placeholder"
-            className="text-white block px-3 py-2 flex block items-center"
-          >
-            <Icon icon="ChevronLeftIcon" className=" w-7 h-7" />
-            <span className="block">Back to Bikes</span>
-          </a>
-        </Link>
-      </div>
-
+    <Layout title={`${thisBike.manufacturer} - ${thisBike.title}`} type="bike">
       <article className="sm:flex sm:flex-row sm:flex-wrap ">
         <div className={` sm:w-1/2 md:w-3/5 bg-white `}>
           <div className="border-b ">
