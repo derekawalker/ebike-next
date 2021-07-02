@@ -1,4 +1,5 @@
 import selectOptions from './selectOptions';
+import Select from '../Select';
 
 const BikeFilters = ({ filterSelections, setFilterSelections }) => {
   const handleFilterChange = (event, category) => {
@@ -8,168 +9,105 @@ const BikeFilters = ({ filterSelections, setFilterSelections }) => {
     });
   };
 
+  const handleReset = () => {
+    setFilterSelections({
+      price: '0',
+      motor: '0',
+      battery: '0',
+      range: '0',
+      top_speed: '0',
+      voltage: '0',
+      suspension: '0',
+    });
+  };
+
+  const selectClasses =
+    'flex flex-col p-2 lg:px-0 w-1/3 sm:w-1/4 md:w-auto lg:w-full';
+
   return (
-    <div className="-mx-2">
-      <form className="flex flex-wrap lg:block lg:w-full" id="bike-filters">
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="price"
-          >
-            Max Price:
-          </label>
-          <select
-            value={filterSelections.price}
-            name="price"
-            id="price"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'price')}
-          >
-            {selectOptions.price.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+    <div>
+      <form
+        className="flex flex-wrap lg:block lg:w-full items-end"
+        id="bike-filters"
+        onSubmit={handleReset}
+      >
+        <Select
+          className={selectClasses}
+          options={selectOptions.price}
+          value={filterSelections.price}
+          label="Max Price"
+          formId="bike-filters"
+          name="price"
+          onChange={(event) => handleFilterChange(event, 'price')}
+        />
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="motor"
-          >
-            Min Motor:
-          </label>
-          <select
-            value={filterSelections.motor}
-            name="motor"
-            id="motor"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'motor')}
-          >
-            {selectOptions.motor.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Select
+          className={selectClasses}
+          options={selectOptions.motor}
+          value={filterSelections.motor}
+          label="Min Motor"
+          formId="bike-filters"
+          name="motor"
+          onChange={(event) => handleFilterChange(event, 'motor')}
+        />
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="battery"
-          >
-            Min Battery:
-          </label>
-          <select
-            value={filterSelections.battery}
-            name="battery"
-            id="battery"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'battery')}
-          >
-            {selectOptions.battery.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Select
+          className={selectClasses}
+          options={selectOptions.battery}
+          value={filterSelections.battery}
+          label="Min Battery"
+          formId="bike-filters"
+          name="battery"
+          onChange={(event) => handleFilterChange(event, 'battery')}
+        />
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="voltage"
-          >
-            Min Volts:
-          </label>
-          <select
-            value={filterSelections.voltage}
-            name="voltage"
-            id="voltage"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'voltage')}
-          >
-            {selectOptions.voltage.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Select
+          className={selectClasses}
+          options={selectOptions.voltage}
+          value={filterSelections.voltage}
+          label="Min Volts"
+          formId="bike-filters"
+          name="voltage"
+          onChange={(event) => handleFilterChange(event, 'voltage')}
+        />
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="range"
-          >
-            Min Range:
-          </label>
-          <select
-            value={filterSelections.range}
-            name="range"
-            id="range"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'range')}
-          >
-            {selectOptions.range.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Select
+          className={selectClasses}
+          options={selectOptions.range}
+          value={filterSelections.range}
+          label="Min Range"
+          formId="bike-filters"
+          name="range"
+          onChange={(event) => handleFilterChange(event, 'range')}
+        />
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="top_speed"
-          >
-            Min Top Speed:
-          </label>
-          <select
-            value={filterSelections.top_speed}
-            name="top_speed"
-            id="top_speed"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'top_speed')}
-          >
-            {selectOptions.top_speed.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Select
+          className={selectClasses}
+          options={selectOptions.top_speed}
+          value={filterSelections.top_speed}
+          label="Min Top Speed"
+          formId="bike-filters"
+          name="top_speed"
+          onChange={(event) => handleFilterChange(event, 'top_speed')}
+        />
 
-        <div className="flex flex-col p-2 w-1/3 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="suspension"
+        <Select
+          className={selectClasses}
+          options={selectOptions.suspension}
+          value={filterSelections.suspension}
+          label="Suspension"
+          formId="bike-filters"
+          name="suspension"
+          onChange={(event) => handleFilterChange(event, 'suspension')}
+        />
+
+        <div className={selectClasses}>
+          <button
+            className="bg-red-500 hover:bg-yellow-500 duration-300 text-white shadow py-2 px-4 rounded"
+            type="submit"
           >
-            Suspension:
-          </label>
-          <select
-            value={filterSelections.suspension}
-            name="suspension"
-            id="suspension"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleFilterChange(event, 'suspension')}
-          >
-            {selectOptions.suspension.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+            Reset
+          </button>
         </div>
       </form>
     </div>

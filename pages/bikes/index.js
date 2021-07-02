@@ -34,7 +34,7 @@ const Bikes = ({ bikes }) => {
     suspension: '0',
   });
   const [sortSelections, setSortSelections] = useState({
-    field: 'title',
+    field: 'price',
     type: 'string',
     direction: 'asc',
   });
@@ -126,7 +126,7 @@ const Bikes = ({ bikes }) => {
   }
 
   let bikeOutput = filteredBikes.map((bike) => (
-    <div className="sm:w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
+    <div className="w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
       <Link
         href={`/bikes/${bike.manufacturer
           .replace(/\s+/g, '-')
@@ -146,10 +146,9 @@ const Bikes = ({ bikes }) => {
             <div className="">{bike.motor}W</div>
             <div className="">{bike.battery}Ah</div>
             <div className="">{bike.voltage}V</div>
-            <div className="">{bike.range} miles</div>
+            <div className="">Range: {bike.range} miles</div>
             <div className="">{bike.top_speed} mph</div>
-            <div className="">{bike.suspension} Suspension</div>
-            <div dangerouslySetInnerHTML={{ __html: bike.summary }} />
+            <div className="">Suspension: {bike.suspension}</div>
           </Card>
         </a>
       </Link>
@@ -189,7 +188,7 @@ const Bikes = ({ bikes }) => {
               setSortSelections={setSortSelections}
             />
           </section>
-          <section className="sm:flex sm:flex-row sm:flex-wrap -mx-2 my-2 lg:w-4/5">
+          <section className="flex flex-row flex-wrap -mx-2 my-2 lg:w-4/5">
             {bikeOutput}
           </section>
         </div>

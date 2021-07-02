@@ -4,13 +4,13 @@ import Icon from '../Icon';
 const Card = ({ icon, title, color, children, image }) => (
   <div className="md:flex-1 text-center border border-gray-300 bg-white shadow-lg rounded-xl overflow-hidden h-full">
     {image && (
-      <div className="w-full h-64 md:h-48 relative border-b">
+      <div className="w-full relative border-b">
         <Image
           src={image}
           alt={title}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          layout="responsive"
+          height={400}
+          width={600}
         />
       </div>
     )}
@@ -21,7 +21,7 @@ const Card = ({ icon, title, color, children, image }) => (
       </div>
     )}
     <div className="px-8 py-6">
-      <h4 className="text-xl font-bold mb-3">{title}</h4>
+      <h4 className="text-xl font-bold mb-4 leading-tight">{title}</h4>
       {children}
     </div>
   </div>

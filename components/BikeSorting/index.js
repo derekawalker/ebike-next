@@ -1,4 +1,5 @@
 import sortOptions from './sortOptions';
+import Select from '../Select';
 
 const BikeSorting = ({ sortSelections, setSortSelections }) => {
   const handleSortChange = (event, category) => {
@@ -22,75 +23,34 @@ const BikeSorting = ({ sortSelections, setSortSelections }) => {
     }
   };
 
-  return (
-    <div className="-mx-2">
-      <form className="flex flex-wrap lg:block lg:w-full" id="bike-sorting">
-        <div className="flex flex-col p-2 w-1/2 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="price"
-          >
-            Sort By:
-          </label>
-          <select
-            value={sortSelections.price}
-            name="price"
-            id="price"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleSortChange(event, 'fields')}
-          >
-            {sortOptions.fields.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                data-type={option.type}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+  const selectClasses =
+    'flex flex-col p-2 lg:px-0 w-1/3 sm:w-1/4 md:w-auto lg:w-full';
 
-        <div className="flex flex-col p-2 w-1/2 sm:w-1/4 md:w-auto lg:w-full">
-          <label
-            className="uppercase text-xs font-bold tracking-wider"
-            htmlFor="motor"
-          >
-            Sort Direction:
-          </label>
-          <select
-            value={sortSelections.motor}
-            name="motor"
-            id="motor"
-            form="bike-filters"
-            className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-            onChange={(event) => handleSortChange(event, 'directions')}
-          >
-            {sortOptions.directions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
+  return (
+    <div>
+      <form className="flex flex-wrap lg:block lg:w-full" id="bike-sorting">
+        <Select
+          className={selectClasses}
+          options={sortOptions.fields}
+          value={sortSelections.field}
+          label="Sort By"
+          formId="bike-sorting"
+          name="field"
+          onChange={(event) => handleSortChange(event, 'fields')}
+        />
+
+        <Select
+          className={selectClasses}
+          options={sortOptions.directions}
+          value={sortSelections.direction}
+          label="Sort Direction"
+          formId="bike-sorting"
+          name="direction"
+          onChange={(event) => handleSortChange(event, 'directions')}
+        />
       </form>
     </div>
   );
 };
 
 export default BikeSorting;
-
-//  <input
-//           className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-//           id="email"
-//           type="email"
-//           aria-label="email address"
-//           placeholder="Enter your email address"
-//         />
-//         <button
-//           className="bg-blue-600 hover:bg-blue-700 duration-300 text-white shadow py-2 px-4 rounded"
-//           type="submit"
-//         >
-//           Sign Up
-//         </button>

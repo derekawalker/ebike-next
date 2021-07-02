@@ -33,8 +33,14 @@ const Layout = ({ title, type, children }) => (
     </Head>
     <Header />
     <div
-      className={`${styles.breadcrumbs} bg-gray-900 text-gray-400 ${
-        type === 'bike' ? styles.bike : undefined
+      className={`${variables.sitePaddingX} ${
+        styles.breadcrumbs
+      } bg-gray-900 text-gray-400 ${
+        type === 'bike'
+          ? styles.bike
+          : type === 'home'
+          ? styles.home
+          : undefined
       }`}
     >
       <Breadcrumbs labelsToUppercase rootLabel="Home" />
