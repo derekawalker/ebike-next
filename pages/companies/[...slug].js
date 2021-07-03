@@ -49,6 +49,16 @@ const Company = ({ companies, params }) => {
 
         <div className={`${variables.sitePadding} `}>
           <h1 className="text-2xl font-bold ">{thisCompany.title}</h1>
+          {thisCompany.link && (
+            <div className="font-bold mb-3 ">
+              <a
+                href={thisCompany.link}
+                className="border rounded-3xl border-blue-500 text-blue-500 uppercase tracking-wider px-4 py-2 block text-center bg-blue-100"
+              >
+                Visit Website
+              </a>
+            </div>
+          )}
           <div
             className="mb-3 border-t border-gray-300 pt-3"
             dangerouslySetInnerHTML={{ __html: thisCompany.body }}

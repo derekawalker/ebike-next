@@ -97,8 +97,18 @@ const Bike = ({ bikes, params }) => {
             {thisBike.manufacturer}
           </h2>
           <div className="font-bold mb-3 text-xl">
-            {formatMoney(thisBike.price)}
+            {formatMoney(thisBike.price)}a
           </div>
+          {thisBike.link && (
+            <div className="font-bold mb-3 ">
+              <a
+                href={thisBike.link}
+                className="border rounded-3xl border-blue-500 text-blue-500 uppercase tracking-wider px-4 py-2 block text-center bg-blue-100"
+              >
+                Visit Website
+              </a>
+            </div>
+          )}
           <div className="flex flex-wrap">
             <div className="w-1/2 sm:w-full lg:w-1/2">
               <Stat title="Motor" icon="cog" color="text-red-500">
