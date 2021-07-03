@@ -7,7 +7,7 @@ const Stat = ({ icon, title, color, children }) => (
         <Icon icon={icon} className="flex-grow w-10 h-10" />
       </div>
     )}
-    <div className="py-3">
+    <div className="py-3 flex-grow">
       <h4 className="font-bold uppercase text-xs tracking-wider">{title}</h4>
       <div className="font-thin">{children}</div>
     </div>

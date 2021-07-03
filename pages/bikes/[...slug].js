@@ -28,12 +28,19 @@ const Bike = ({ bikes, params }) => {
   const thisBike = bike[0];
 
   const supportingData = (
-    <div className={`${variables.sitePadding} flex flex-wrap bg-white`}>
+    <div
+      className={`${variables.sitePadding} flex flex-wrap flex-row bg-white`}
+    >
       <div className="w-1/2 sm:w-full md:w-1/2">
         <Stat title="Front Tire" icon="XCircleIcon" color="text-gray-800">
           {thisBike.front_tire}
         </Stat>
       </div>
+
+      <div className="w-1/2 sm:w-full md:w-1/2">
+        <Stat title="Range">{bike.range} miles</Stat>
+      </div>
+
       <div className="w-1/2 sm:w-full md:w-1/2">
         <Stat title="Rear Tire" icon="XCircleIcon" color="text-gray-800">
           {thisBike.rear_tire}

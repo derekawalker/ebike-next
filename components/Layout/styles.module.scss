@@ -48,6 +48,14 @@
             content: '';
           }
         }
+
+        &:nth-last-child(3) {
+          display: none;
+
+          &::after {
+            content: '';
+          }
+        }
       }
     }
   }

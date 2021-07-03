@@ -8,6 +8,7 @@ import BikeFilters from '../../components/BikeFilters';
 import BikeSorting from '../../components/BikeSorting';
 import Icon from '../../components/Icon';
 import { BikeContext } from '../../contexts/BikeContext';
+import Stat from '../../components/Stat';
 
 // Styles
 import { variables } from '../../styles/style-variables';
@@ -143,12 +144,31 @@ const Bikes = ({ bikes }) => {
             <div className="border rounded-3xl bg-white border-green-500 text-green-500 font-bold px-4 py-2 mb-3 text-lg">
               {formatMoney(bike.price)}
             </div>
-            <div className="">{bike.motor}W</div>
-            <div className="">{bike.battery}Ah</div>
-            <div className="">{bike.voltage}V</div>
-            <div className="">Range: {bike.range} miles</div>
-            <div className="">{bike.top_speed} mph</div>
-            <div className="">Suspension: {bike.suspension}</div>
+            <div className="flex flex-row flex-wrap">
+              <div className="w-1/2">
+                <Stat title="Motor">{bike.motor} W</Stat>
+              </div>
+
+              <div className="w-1/2">
+                <Stat title="Battery">{bike.battery} Ah</Stat>
+              </div>
+
+              <div className="w-1/2">
+                <Stat title="Volts">{bike.voltage} V</Stat>
+              </div>
+
+              <div className="w-1/2">
+                <Stat title="Top Speed">{bike.top_speed} mph</Stat>
+              </div>
+
+              <div className="w-1/2">
+                <Stat title="Range">{bike.range} miles</Stat>
+              </div>
+
+              <div className="w-1/2">
+                <Stat title="Suspension">{bike.suspension}</Stat>
+              </div>
+            </div>
           </Card>
         </a>
       </Link>
