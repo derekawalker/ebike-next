@@ -2,10 +2,10 @@ import { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 
-import Icon from '../../components/Icon';
 import { CompanyContext } from '../../contexts/CompanyContext';
 import Stat from '../../components/Stat';
 

@@ -2,11 +2,11 @@ import { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import BikeFilters from '../../components/BikeFilters';
 import BikeSorting from '../../components/BikeSorting';
-import Icon from '../../components/Icon';
 import { BikeContext } from '../../contexts/BikeContext';
 import Stat from '../../components/Stat';
 
@@ -127,7 +127,7 @@ const Bikes = ({ bikes }) => {
   }
 
   let bikeOutput = filteredBikes.map((bike) => (
-    <div className="w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
+    <div className="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
       <Link
         href={`/bikes/${bike.manufacturer
           .replace(/\s+/g, '-')
@@ -191,7 +191,7 @@ const Bikes = ({ bikes }) => {
         <div className="lg:flex">
           <section className=" border-b border-gray-400 pb-2 mt-3 lg:w-1/5 lg:mr-5 lg:pr-5 lg:border-r lg:border-b-0 lg:py-0">
             <div className="flex items-center">
-              <Icon icon="FilterIcon" className="w-4 h-4 mr-1" />
+              <FontAwesomeIcon icon="FilterIcon" className="w-4 h-4 mr-1" />
               <h4 className="font-black tracking-wider uppercase">Filters:</h4>
             </div>
             <BikeFilters
@@ -200,7 +200,10 @@ const Bikes = ({ bikes }) => {
             />
 
             <div className="flex items-center mt-4 border-t pt-4 border-gray-400 border-dashed">
-              <Icon icon="SortAscendingIcon" className="w-4 h-4 mr-1" />
+              <FontAwesomeIcon
+                icon="SortAscendingIcon"
+                className="w-4 h-4 mr-1"
+              />
               <h4 className="font-black tracking-wider uppercase">Sort:</h4>
             </div>
             <BikeSorting

@@ -1,10 +1,7 @@
-import * as Icons from '@heroicons/react/solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Icon = ({ icon, className }) => {
-  const { ...icons } = Icons;
-  const TheIcon = icons[icon];
-
-  return <TheIcon className={className} />;
-};
+const Icon = ({ icon, className }) => (
+  <FontAwesomeIcon icon={icon} className={className} />
+);
 
 export default Icon;

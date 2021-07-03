@@ -2,10 +2,9 @@ import _ from 'lodash';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/Layout';
 import Stat from '../../components/Stat';
-import Icon from '../../components/Icon';
-
 // Styles
 import { variables } from '../../styles/style-variables';
 
@@ -32,71 +31,43 @@ const Bike = ({ bikes, params }) => {
       className={`${variables.sitePadding} flex flex-wrap flex-row bg-white`}
     >
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat title="Front Tire" icon="XCircleIcon" color="text-gray-800">
+        <Stat title="Front Tire" icon="record-vinyl" color="text-gray-800">
           {thisBike.front_tire}
         </Stat>
       </div>
 
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat title="Range">{bike.range} miles</Stat>
-      </div>
-
-      <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat title="Rear Tire" icon="XCircleIcon" color="text-gray-800">
+        <Stat title="Rear Tire" icon="record-vinyl" color="text-gray-800">
           {thisBike.rear_tire}
         </Stat>
       </div>
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat
-          title="Headlight"
-          icon="DotsCircleHorizontalIcon"
-          color="text-yellow-400"
-        >
+        <Stat title="Headlight" icon="lightbulb" color="text-yellow-500">
           {thisBike.headlight}
         </Stat>
       </div>
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat
-          title="Brake Light"
-          icon="DotsCircleHorizontalIcon"
-          color="text-red-400"
-        >
+        <Stat title="Brake Light" icon="lightbulb" color="text-red-500">
           {thisBike.brake_light}
         </Stat>
       </div>
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat
-          title="Gears"
-          icon="DotsCircleHorizontalIcon"
-          color="text-red-400"
-        >
+        <Stat title="Gears" icon="cogs" color="text-gray-500">
           {thisBike.gears}
         </Stat>
       </div>
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat
-          title="Motor Type"
-          icon="DotsCircleHorizontalIcon"
-          color="text-red-400"
-        >
+        <Stat title="Motor Type" icon="cog" color="text-gray-500">
           {thisBike.motor_type}
         </Stat>
       </div>
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat
-          title="Payload"
-          icon="DotsCircleHorizontalIcon"
-          color="text-red-400"
-        >
+        <Stat title="Payload" icon="weight" color="text-blue-500">
           {thisBike.payload}
         </Stat>
       </div>
       <div className="w-1/2 sm:w-full md:w-1/2">
-        <Stat
-          title="Riders"
-          icon="DotsCircleHorizontalIcon"
-          color="text-red-400"
-        >
+        <Stat title="Riders" icon="user-friends" color="text-yellow-500">
           {thisBike.riders}
         </Stat>
       </div>
@@ -130,44 +101,36 @@ const Bike = ({ bikes, params }) => {
           </div>
           <div className="flex flex-wrap">
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat title="Motor" icon="CogIcon" color="text-green-500">
+              <Stat title="Motor" icon="cog" color="text-red-500">
                 {thisBike.motor} W
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat
-                title="Battery"
-                icon="LightningBoltIcon"
-                color="text-yellow-500"
-              >
+              <Stat title="Battery" icon="battery-full" color="text-green-500">
                 {thisBike.battery} Ah
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat title="Volts" icon="LightningBoltIcon" color="text-red-500">
+              <Stat title="Volts" icon="bolt" color="text-yellow-500">
                 {thisBike.voltage} V
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat title="Range" icon="ArrowRightIcon" color="text-blue-500">
+              <Stat title="Range" icon="road" color="text-gray-700">
                 {thisBike.voltage} miles
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
               <Stat
                 title="Top Speed"
-                icon="LightningBoltIcon"
-                color="text-purple-500"
+                icon="tachometer-alt"
+                color="text-blue-500"
               >
                 {thisBike.top_speed} mph
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat
-                title="Suspension"
-                icon="ChartBarIcon"
-                color="text-gray-500"
-              >
+              <Stat title="Suspension" icon="coins" color="text-purple-500">
                 {thisBike.suspension}
               </Stat>
             </div>

@@ -1,10 +1,5 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import {
-  DatabaseIcon,
-  AdjustmentsIcon,
-  ChatIcon,
-} from '@heroicons/react/solid';
 import { getSortedPostsData } from '../lib/posts';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
@@ -25,25 +20,21 @@ const Home = ({ allPostsData }) => (
     </section>
     <section className={`${variables.sitePadding} md:flex md:flex-row  `}>
       <div className="md:w-1/3 p-2">
-        <Card
-          color="text-blue-500"
-          icon="DatabaseIcon"
-          title="Massive Database"
-        >
+        <Card color="text-blue-500" icon="motorcycle" title="Massive Database">
+          <p>Search and compare thousands of bikes!</p>
+        </Card>
+      </div>
+      <div className="md:w-1/3 p-2">
+        <Card color="text-yellow-500" icon="sliders-h" title="Comparison Tools">
           <p>Search and compare thousands of bikes!</p>
         </Card>
       </div>
       <div className="md:w-1/3 p-2">
         <Card
-          color="text-yellow-500"
-          icon="AdjustmentsIcon"
-          title="Comparison Tools"
+          color="text-green-500"
+          icon="comment-dots"
+          title="Helpful Insights"
         >
-          <p>Search and compare thousands of bikes!</p>
-        </Card>
-      </div>
-      <div className="md:w-1/3 p-2">
-        <Card color="text-green-500" icon="ChatIcon" title="Helpful Insights">
           <p>Search and compare thousands of bikes!</p>
         </Card>
       </div>

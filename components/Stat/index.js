@@ -1,10 +1,10 @@
-import Icon from '../Icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Stat = ({ icon, title, color, children }) => (
-  <div className="flex border-t  border-gray-400 border-opacity-25">
+  <div className="flex border-t  border-gray-400 border-opacity-25 items-center">
     {icon && (
-      <div className={`${color} text-center flex py-3 pr-3`}>
-        <Icon icon={icon} className="flex-grow w-10 h-10" />
+      <div className={`${color} text-center flex py-3 pr-3 w-12`}>
+        <FontAwesomeIcon icon={icon} className="flex-grow text-3xl " />
       </div>
     )}
     <div className="py-3 flex-grow">

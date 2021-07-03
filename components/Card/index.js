@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Icon from '../Icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Card = ({ icon, title, color, children, image }) => (
   <div className="md:flex-1 text-center border border-gray-300 bg-white shadow-lg rounded-xl overflow-hidden h-full">
@@ -17,7 +17,7 @@ const Card = ({ icon, title, color, children, image }) => (
 
     {icon && (
       <div className={`${color} bg-gray-800 text-center flex p-6`}>
-        <Icon icon={icon} className="flex-grow w-16 h-16" />
+        <FontAwesomeIcon icon={icon} className="flex-grow w-16 h-16" />
       </div>
     )}
     <div className="px-8 py-6">

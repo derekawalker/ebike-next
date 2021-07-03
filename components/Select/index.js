@@ -1,4 +1,4 @@
-import Icon from '../Icon';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Select = ({
   name,
@@ -32,7 +32,10 @@ const Select = ({
         ))}
       </select>
       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-        <Icon icon="ChevronDownIcon" className="fill-current h-4 w-4" />
+        <FontAwesomeIcon
+          icon="ChevronDownIcon"
+          className="fill-current h-4 w-4"
+        />
       </div>
     </div>
   </div>

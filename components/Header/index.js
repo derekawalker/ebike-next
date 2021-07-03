@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
-// Icons
-import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Data
 import links from '../../lib/links';
@@ -35,9 +33,9 @@ const Header = () => {
             >
               <span className="sr-only">Open main menu</span>
               {menuIsOpen ? (
-                <XIcon className="h-6 w-6" />
+                <FontAwesomeIcon icon="close" className="h-6 w-6" />
               ) : (
-                <MenuIcon className="block h-6 w-6" />
+                <FontAwesomeIcon icon="bars" className="block h-6 w-6" />
               )}
             </button>
           </div>

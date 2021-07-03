@@ -2,10 +2,9 @@ import _ from 'lodash';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/Layout';
 import Stat from '../../components/Stat';
-import Icon from '../../components/Icon';
-
 // Styles
 import { variables } from '../../styles/style-variables';
 
