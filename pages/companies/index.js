@@ -1,13 +1,7 @@
-import { useState, useContext, useEffect } from 'react';
 import Link from 'next/link';
-import { formatMoney } from 'accounting';
 import _ from 'lodash';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
-
-import { CompanyContext } from '../../contexts/CompanyContext';
-import Stat from '../../components/Stat';
 
 // Styles
 import { variables } from '../../styles/style-variables';
@@ -24,16 +18,11 @@ export const getStaticProps = async () => {
 };
 
 const Companies = ({ companies }) => {
-  const [companyState, setCompanyState] = useContext(CompanyContext);
-
-  useEffect(() => {
-    if (companies) {
-      setCompanyState({ companies });
-    }
-  }, [companyState.companies]);
-
   let companyOutput = companies.map((company) => (
-    <div className="w-1/2 md:w-1/3 xl:w-1/4 p-2" key={company.company_id}>
+    <div
+      className="sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
+      key={company.company_id}
+    >
       <Link
         href={`/companies/${company.title.replace(/\s+/g, '-').toLowerCase()}`}
         passHref
@@ -62,14 +51,14 @@ const Companies = ({ companies }) => {
   }
 
   return (
-    <Layout title="Companies">
+    <Layout title="eBike Companies">
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">
-          eCompanies
+          eBike Companies
         </h1>
         <p>This is the companies page.</p>
-        <div className="lg:flex">
-          <section className="flex flex-row flex-wrap -mx-2 my-2 lg:w-4/5">
+        <div className="">
+          <section className="flex flex-row flex-wrap -mx-2 my-2">
             {companyOutput}
           </section>
         </div>

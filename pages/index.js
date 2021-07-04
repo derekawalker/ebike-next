@@ -19,24 +19,18 @@ const Home = ({ allPostsData }) => (
       <p className="font-normal">Compare thousands of bikes here!</p>
     </section>
     <section className={`${variables.sitePadding} md:flex md:flex-row  `}>
-      <div className="md:w-1/3 p-2">
-        <Card color="text-blue-500" icon="motorcycle" title="Massive Database">
-          <p>Search and compare thousands of bikes!</p>
-        </Card>
-      </div>
-      <div className="md:w-1/3 p-2">
-        <Card color="text-yellow-500" icon="sliders-h" title="Comparison Tools">
-          <p>Search and compare thousands of bikes!</p>
-        </Card>
-      </div>
-      <div className="md:w-1/3 p-2">
-        <Card
-          color="text-green-500"
-          icon="comment-dots"
-          title="Helpful Insights"
-        >
-          <p>Search and compare thousands of bikes!</p>
-        </Card>
+      <div className="w-full p-2">
+        <Link href="/bikes">
+          <a href="placeholder">
+            <Card
+              color="text-blue-500"
+              icon="motorcycle"
+              title="Search & Compare"
+            >
+              <p>Search, filters and compare the top scrambler style ebikes!</p>
+            </Card>
+          </a>
+        </Link>
       </div>
     </section>
     <section className={variables.sitePadding}>

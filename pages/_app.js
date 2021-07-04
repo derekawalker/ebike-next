@@ -18,8 +18,11 @@ import {
   faWeight,
   faUserFriends,
   faCoins,
+  faChevronDown,
+  faChevronUp,
+  faFilter,
+  faSort,
 } from '@fortawesome/free-solid-svg-icons';
-import { BikeProvider } from '../contexts/BikeContext';
 
 library.add(
   faTimes,
@@ -38,13 +41,15 @@ library.add(
   faCog,
   faWeight,
   faUserFriends,
-  faCoins
+  faCoins,
+  faChevronDown,
+  faChevronUp,
+  faFilter,
+  faSort
 );
 
-const App = ({ Component, pageProps }) => (
-  <BikeProvider>
-    <Component {...pageProps} currentPage setCurrentPage />
-  </BikeProvider>
+const App = ({ Component, pageProps, bikes }) => (
+  <Component {...pageProps} currentPage setCurrentPage />
 );
 
 export default App;

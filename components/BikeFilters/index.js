@@ -1,7 +1,12 @@
 import selectOptions from './selectOptions';
 import Select from '../Select';
 
-const BikeFilters = ({ filterSelections, setFilterSelections }) => {
+const BikeFilters = ({
+  filterSelections,
+  setFilterSelections,
+  filtersShow,
+  setFiltersShown,
+}) => {
   const handleFilterChange = (event, category) => {
     setFilterSelections({
       ...filterSelections,
@@ -19,6 +24,10 @@ const BikeFilters = ({ filterSelections, setFilterSelections }) => {
       voltage: '0',
       suspension: '0',
     });
+  };
+
+  const handleSearch = () => {
+    setFiltersShown(false);
   };
 
   const selectClasses =
@@ -107,6 +116,15 @@ const BikeFilters = ({ filterSelections, setFilterSelections }) => {
             type="submit"
           >
             Reset
+          </button>
+        </div>
+        <div className={`${selectClasses} lg:hidden`}>
+          <button
+            className="bg-blue-500 hover:bg-green-500 duration-300 text-white shadow py-2 px-4 rounded"
+            type="button"
+            onClick={handleSearch}
+          >
+            Search
           </button>
         </div>
       </form>

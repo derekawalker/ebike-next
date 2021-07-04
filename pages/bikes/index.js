@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
@@ -7,7 +7,6 @@ import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import BikeFilters from '../../components/BikeFilters';
 import BikeSorting from '../../components/BikeSorting';
-import { BikeContext } from '../../contexts/BikeContext';
 import Stat from '../../components/Stat';
 
 // Styles
@@ -39,16 +38,14 @@ const Bikes = ({ bikes }) => {
     type: 'string',
     direction: 'asc',
   });
-  const [bikeState, setBikeState] = useContext(BikeContext);
+  const [filtersShown, setFiltersShown] = useState(false);
 
-  useEffect(() => {
-    if (bikes) {
-      setBikeState({ bikes });
-    }
-  }, [bikeState.bikes]);
+  const handleFilterToggle = () => {
+    setFiltersShown(!filtersShown);
+  };
 
   // Apply filters.
-  let filteredBikes = bikeState.bikes;
+  let filteredBikes = bikes;
 
   // Price.
   if (filterSelections.price !== '0') {
@@ -137,11 +134,11 @@ const Bikes = ({ bikes }) => {
         passHref
       >
         <a href="placeholder">
-          <Card title={bike.title} color="green-500" image={bike.image}>
+          <Card title={bike.title} image={bike.image}>
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {bike.manufacturer}
             </div>
-            <div className="border rounded-3xl bg-white border-green-500 text-green-500 font-bold px-4 py-2 mb-3 text-lg">
+            <div className=" font-bold mb-3 border-t pt-3 text-xl text-green-500">
               {formatMoney(bike.price)}
             </div>
             <div className="flex flex-row flex-wrap">
@@ -189,28 +186,50 @@ const Bikes = ({ bikes }) => {
         <h1 className="text-2xl font-black uppercase tracking-wider">eBikes</h1>
         <p>This is the bikes page.</p>
         <div className="lg:flex">
-          <section className=" border-b border-gray-400 pb-2 mt-3 lg:w-1/5 lg:mr-5 lg:pr-5 lg:border-r lg:border-b-0 lg:py-0">
-            <div className="flex items-center">
-              <FontAwesomeIcon icon="FilterIcon" className="w-4 h-4 mr-1" />
-              <h4 className="font-black tracking-wider uppercase">Filters:</h4>
+          <div className="rounded-lg mt-3 px-3 py-2 bg-white border border-gray-300 lg:rounded-none lg:bg-transparent lg:border-0 lg:p-0 lg:w-1/5 lg:mr-4">
+            <div
+              className="flex items-center p-3 justify-between lg:p-0"
+              onClick={handleFilterToggle}
+            >
+              <div className="flex items-center">
+                <FontAwesomeIcon icon="filter" className="mr-1" />
+                <h4 className="font-black tracking-wider uppercase">
+                  Filters:
+                </h4>
+              </div>
+              <div className="block lg:hidden">
+                {filtersShown ? (
+                  <FontAwesomeIcon icon="chevron-up" className="mr-1" />
+                ) : (
+                  <FontAwesomeIcon icon="chevron-down" className="mr-1" />
+                )}
+              </div>
             </div>
-            <BikeFilters
-              filterSelections={filterSelections}
-              setFilterSelections={setFilterSelections}
-            />
 
-            <div className="flex items-center mt-4 border-t pt-4 border-gray-400 border-dashed">
-              <FontAwesomeIcon
-                icon="SortAscendingIcon"
-                className="w-4 h-4 mr-1"
+            <section
+              className={`pb-2 lg:mr-3 lg:pr-3 l lg:py-0 lg:w-full ${
+                filtersShown ? 'block' : 'hidden lg:block'
+              }`}
+            >
+              <div className="border-t border-gray-400 border-dashed pt-3 lg:pt-0 lg:border-0 lg:pt-0">
+                <BikeFilters
+                  filterSelections={filterSelections}
+                  setFilterSelections={setFilterSelections}
+                  filtersShown={filtersShown}
+                  setFiltersShown={setFiltersShown}
+                />
+              </div>
+
+              <div className="flex items-center mt-4 border-t pt-4 border-gray-400 border-dashed">
+                <FontAwesomeIcon icon="sort" className="w-4 h-4 mr-1" />
+                <h4 className="font-black tracking-wider uppercase">Sort:</h4>
+              </div>
+              <BikeSorting
+                sortSelections={sortSelections}
+                setSortSelections={setSortSelections}
               />
-              <h4 className="font-black tracking-wider uppercase">Sort:</h4>
-            </div>
-            <BikeSorting
-              sortSelections={sortSelections}
-              setSortSelections={setSortSelections}
-            />
-          </section>
+            </section>
+          </div>
           <section className="flex flex-row flex-wrap -mx-2 my-2 lg:w-4/5">
             {bikeOutput}
           </section>
