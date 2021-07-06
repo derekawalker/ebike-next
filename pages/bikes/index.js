@@ -49,11 +49,19 @@ const Bikes = ({
   // Apply filters.
   let filteredBikes = bikes;
 
-  // Price.
-  if (filterSelections.price !== '0') {
+  // Min Price.
+  if (filterSelections.min_price !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.price) <= Number(filterSelections.price)
+      (bike) => Number(bike.price) >= Number(filterSelections.min_price)
+    );
+  }
+
+  // Max Price.
+  if (filterSelections.max_price !== '0') {
+    filteredBikes = _.filter(
+      filteredBikes,
+      (bike) => Number(bike.price) <= Number(filterSelections.max_price)
     );
   }
 

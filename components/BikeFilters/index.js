@@ -43,11 +43,21 @@ const BikeFilters = ({
         <Select
           className={selectClasses}
           options={selectOptions.price}
-          value={filterSelections.price}
+          value={filterSelections.min_price}
+          label="Min Price"
+          formId="bike-filters"
+          name="min_price"
+          onChange={(event) => handleFilterChange(event, 'min_price')}
+        />
+
+        <Select
+          className={selectClasses}
+          options={selectOptions.price}
+          value={filterSelections.max_price}
           label="Max Price"
           formId="bike-filters"
-          name="price"
-          onChange={(event) => handleFilterChange(event, 'price')}
+          name="max_price"
+          onChange={(event) => handleFilterChange(event, 'max_price')}
         />
 
         <Select

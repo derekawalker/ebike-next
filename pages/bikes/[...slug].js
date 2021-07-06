@@ -81,6 +81,12 @@ const Bike = ({
     bikeArray.reduce((total, next) => total + Number(next.range), 0) /
     bikeArray.length;
 
+  const priceHigh = Math.max(...bikeArray.map((o) => Number(o.price)));
+  const priceLow = Math.min(...bikeArray.map((o) => Number(o.price)));
+  const priceAvg =
+    bikeArray.reduce((total, next) => total + Number(next.price), 0) /
+    bikeArray.length;
+
   const supportingData = (
     <div
       className={`${variables.sitePadding} flex flex-wrap flex-row bg-white`}
@@ -126,6 +132,10 @@ const Bike = ({
           {thisBike.riders}
         </Stat>
       </div>
+      <div
+        className="mb-3 border-t border-gray-300 pt-3"
+        dangerouslySetInnerHTML={{ __html: thisBike.body }}
+      />
     </div>
   );
 
@@ -206,9 +216,9 @@ const Bike = ({
                 {thisBike.suspension}
               </Stat>
             </div>
-            <div className="border border-gray-300 w-full mt-4 rounded bg-gray-100">
-              <h4 className="font-bold uppercase text-xs tracking-wider border-b bg-white border-gray-300 w-full rounded-t px-4 py-2">
-                How this bike compares with others in this price range:
+            <div className="border border-gray-300 w-full mt-4 rounded bg-gray-700">
+              <h4 className="font-bold uppercase text-xs tracking-wider border-b bg-gray-800 text-white border-gray-700 w-full rounded-t px-4 py-2">
+                How this bike compares with others in its price range:
               </h4>
               <div className="pt-2 px-4 pb-2">
                 <ProgressBar
@@ -218,7 +228,7 @@ const Bike = ({
                   value={thisBike.motor}
                   avg={motorAvg}
                   suffix=" W"
-                  className="mb-2"
+                  className="mb-2 text-white bg-transparent"
                 />
 
                 <ProgressBar
@@ -228,7 +238,7 @@ const Bike = ({
                   value={thisBike.top_speed}
                   avg={topSpeedAvg}
                   suffix=" mph"
-                  className="mb-2"
+                  className="mb-2 text-white bg-transparent"
                 />
 
                 <ProgressBar
@@ -238,7 +248,7 @@ const Bike = ({
                   value={thisBike.battery}
                   avg={batteryAvg}
                   suffix=" Ah"
-                  className="mb-2"
+                  className="mb-2 text-white bg-transparent"
                 />
 
                 <ProgressBar
@@ -247,15 +257,22 @@ const Bike = ({
                   low={rangeLow}
                   value={thisBike.range}
                   avg={rangeAvg}
-                  suffix=" Ah"
-                  className="mb-2"
+                  suffix=" miles"
+                  className="mb-2 text-white bg-transparent"
+                />
+
+                <ProgressBar
+                  title="Price"
+                  high={priceHigh}
+                  low={priceLow}
+                  value={thisBike.price}
+                  avg={priceAvg}
+                  prefix="$"
+                  reverse
+                  className="mb-2 text-white bg-transparent"
                 />
               </div>
             </div>
-            <div
-              className="mb-3 border-t border-gray-300 pt-3"
-              dangerouslySetInnerHTML={{ __html: thisBike.body }}
-            />
           </div>
         </div>
 

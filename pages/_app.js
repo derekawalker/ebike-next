@@ -55,7 +55,8 @@ const App = ({ Component, pageProps, bikes }) => {
   const [bikesState, setBikesState] = useState([]);
   const [companiesState, setCompaniesState] = useState([]);
   const [filterSelections, setFilterSelections] = useState({
-    price: '0',
+    min_price: '0',
+    max_price: '0',
     motor: '0',
     battery: '0',
     range: '0',
