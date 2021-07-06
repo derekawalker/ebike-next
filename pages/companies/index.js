@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import _ from 'lodash';
+import { useEffect } from 'react';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 
@@ -17,10 +18,22 @@ export const getStaticProps = async () => {
   };
 };
 
-const Companies = ({ companies }) => {
+const Companies = ({
+  companies,
+  bikesState,
+  setBikesState,
+  companiesState,
+  setCompaniesState,
+}) => {
+  useEffect(() => {
+    if (companies !== companiesState) {
+      setCompaniesState(companies);
+    }
+  }, [companiesState]);
+
   let companyOutput = companies.map((company) => (
     <div
-      className="sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
+      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
       key={company.company_id}
     >
       <Link
@@ -31,7 +44,9 @@ const Companies = ({ companies }) => {
           <Card
             title={company.title}
             color="green-500"
-            image={company.thumbnail}
+            image={company.image}
+            fit="contain"
+            background={company.background}
           >
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {company.manufacturer}

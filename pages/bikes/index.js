@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
@@ -23,26 +23,28 @@ export const getStaticProps = async () => {
   };
 };
 
-const Bikes = ({ bikes }) => {
-  const [filterSelections, setFilterSelections] = useState({
-    price: '0',
-    motor: '0',
-    battery: '0',
-    range: '0',
-    top_speed: '0',
-    voltage: '0',
-    suspension: '0',
-  });
-  const [sortSelections, setSortSelections] = useState({
-    field: 'price',
-    type: 'string',
-    direction: 'asc',
-  });
+const Bikes = ({
+  bikes,
+  bikesState,
+  setBikesState,
+  companiesState,
+  setCompaniesState,
+  filterSelections,
+  setFilterSelections,
+  sortSelections,
+  setSortSelections,
+}) => {
   const [filtersShown, setFiltersShown] = useState(false);
 
   const handleFilterToggle = () => {
     setFiltersShown(!filtersShown);
   };
+
+  useEffect(() => {
+    if (bikes !== bikesState) {
+      setBikesState(bikes);
+    }
+  }, [bikesState]);
 
   // Apply filters.
   let filteredBikes = bikes;
@@ -134,7 +136,7 @@ const Bikes = ({ bikes }) => {
         passHref
       >
         <a href="placeholder">
-          <Card title={bike.title} image={bike.image}>
+          <Card title={bike.title} image={bike.thumbnail} fit="responsive">
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {bike.manufacturer}
             </div>

@@ -41,19 +41,19 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Company = ({ companies, bikes, params }) => {
+  const thisSlug = params.slug[0];
+
   const company = _.filter(
     companies,
-    (item) =>
-      item.title.replace(/\s+/g, '-').toLowerCase() ===
-      params.slug[0].replace(/\s+/g, '-').toLowerCase()
+    (item) => item.title.replace(/\s+/g, '-').toLowerCase() === thisSlug
   );
+
+  const thisCompany = company[0];
+
   const companyBikes = _.filter(
     bikes,
-    (item) =>
-      item.manufacturer.replace(/\s+/g, '-').toLowerCase() ===
-      params.slug[0].replace(/\s+/g, '-').toLowerCase()
+    (item) => item.manufacturer.replace(/\s+/g, '-').toLowerCase() === thisSlug
   );
-  const thisCompany = company[0];
 
   const bikeOutput = companyBikes.map((bike) => (
     <div className="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
@@ -66,7 +66,7 @@ const Company = ({ companies, bikes, params }) => {
         passHref
       >
         <a href="placeholder">
-          <Card title={bike.title} image={bike.image}>
+          <Card title={bike.title} image={bike.image} fit="responsive">
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {bike.manufacturer}
             </div>
@@ -108,14 +108,19 @@ const Company = ({ companies, bikes, params }) => {
     <Layout title={`${thisCompany.title}`} type="company">
       <article className="">
         <div className="">
-          <div className="border-b ">
-            <Image
-              src={thisCompany.image}
-              alt={thisCompany.title}
-              layout="responsive"
-              width={3000}
-              height={2000}
-            />
+          <div className="border-b">
+            <div
+              className={`w-full  border-b p-7 bg-${thisCompany.background}`}
+            >
+              <div className="relative h-16">
+                <Image
+                  src={thisCompany.image}
+                  alt={thisCompany.title}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
