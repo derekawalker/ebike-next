@@ -16,6 +16,8 @@ import {
   faRecordVinyl,
   faLightbulb,
   faCog,
+  faPlusCircle,
+  faTimesCircle,
   faWeight,
   faUserFriends,
   faCoins,
@@ -23,6 +25,7 @@ import {
   faChevronUp,
   faFilter,
   faSort,
+  faThList,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -41,6 +44,8 @@ library.add(
   faRecordVinyl,
   faLightbulb,
   faCog,
+  faPlusCircle,
+  faTimesCircle,
   faWeight,
   faUserFriends,
   faCoins,
@@ -48,6 +53,7 @@ library.add(
   faChevronUp,
   faFilter,
   faSort,
+  faThList,
   faCaretDown
 );
 
@@ -69,6 +75,8 @@ const App = ({ Component, pageProps, bikes }) => {
     type: 'string',
     direction: 'asc',
   });
+  const [compareList, setCompareList] = useState([]);
+
   return (
     <Component
       {...pageProps}
@@ -82,6 +90,8 @@ const App = ({ Component, pageProps, bikes }) => {
       setFilterSelections={setFilterSelections}
       sortSelections={sortSelections}
       setSortSelections={setSortSelections}
+      compareList={compareList}
+      setCompareList={setCompareList}
     />
   );
 };

@@ -1,0 +1,35 @@
+.bikeWrapper {
+  width: 375px;
+  min-width: 150px;
+  max-width: 100%;
+
+  h4 {
+    @apply truncate;
+
+    & + div {
+      @apply truncate;
+    }
+  }
+}
+
+.bikeContainer {
+  > div > div {
+    &:nth-child(even) {
+      a {
+        > div {
+          background: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+  }
+}
+
+.statWrapper {
+  > div {
+    @apply -mx-4 px-4;
+
+    &:nth-child(even) {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+}

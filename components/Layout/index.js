@@ -46,9 +46,7 @@ const Layout = ({ title, type, children }) => (
       <Breadcrumbs labelsToUppercase rootLabel="Home" />
     </div>
     <main className="bg-gray-200 text-black">{children}</main>
-    <footer
-      className={`${variables.sitePadding} bg-gray-800 text-base font-thin text-white text-center px`}
-    >
+    <footer className="bg-gray-900 text-base font-thin text-white text-center p-4">
       <p>Copyright eBikeScrambler.com. All Rights Reserved.</p>
     </footer>
   </div>

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { getSortedPostsData } from '../lib/posts';
 import Layout from '../components/Layout';
@@ -14,7 +13,7 @@ const Home = ({ allPostsData }) => (
   <Layout title="Home" type="home">
     <section className="bg-gradient-to-br from-gray-700 to-gray-800 p-12 md:p-16 text-white font-bold text-center ">
       <h2 className="text-3xl md:text-4xl mb-4">
-        Looking for a 20x4 fat tire eBike?
+        Looking for a fat tire eBike?
       </h2>
       <p className="font-normal">Compare thousands of bikes here!</p>
     </section>
@@ -33,22 +32,6 @@ const Home = ({ allPostsData }) => (
         </Link>
       </div>
     </section>
-    <section className={variables.sitePadding}>
-      <h2 className="text-2xl font-black uppercase tracking-wider">Blog</h2>
-      <ul>
-        {allPostsData.map(({ id, date, title }) => (
-          <li key={id}>
-            <Link href={`/posts/${id}`} passHref>
-              <a href="placeholder">{title}</a>
-            </Link>
-            <br />
-            <small>
-              <Date dateString={date} />
-            </small>
-          </li>
-        ))}
-      </ul>
-    </section>
   </Layout>
 );
 
@@ -61,8 +44,21 @@ export async function getStaticProps() {
   };
 }
 
-Home.propTypes = {
-  allPostsData: PropTypes.arrayOf.isRequired,
-};
-
 export default Home;
+
+// <section className={variables.sitePadding}>
+//   <h2 className="text-2xl font-black uppercase tracking-wider">Blog</h2>
+//   <ul>
+//     {allPostsData.map(({ id, date, title }) => (
+//       <li key={id}>
+//         <Link href={`/posts/${id}`} passHref>
+//           <a href="placeholder">{title}</a>
+//         </Link>
+//         <br />
+//         <small>
+//           <Date dateString={date} />
+//         </small>
+//       </li>
+//     ))}
+//   </ul>
+// </section>;

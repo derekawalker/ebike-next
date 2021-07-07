@@ -33,11 +33,23 @@ const Bikes = ({
   setFilterSelections,
   sortSelections,
   setSortSelections,
+  compareList,
+  setCompareList,
 }) => {
   const [filtersShown, setFiltersShown] = useState(false);
 
   const handleFilterToggle = () => {
     setFiltersShown(!filtersShown);
+  };
+
+  const handleCompareClick = (id) => {
+    console.log(compareList);
+    if (compareList.includes(id)) {
+      const newList = compareList.filter((item) => item !== id);
+      setCompareList(newList);
+    } else {
+      setCompareList([...compareList, id]);
+    }
   };
 
   useEffect(() => {
@@ -134,7 +146,10 @@ const Bikes = ({
   }
 
   let bikeOutput = filteredBikes.map((bike) => (
-    <div className="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 p-2" key={bike.bike_id}>
+    <div
+      className="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 p-2 relative"
+      key={bike.bike_id}
+    >
       <Link
         href={`/bikes/${bike.manufacturer
           .replace(/\s+/g, '-')
@@ -143,7 +158,7 @@ const Bikes = ({
         }`}
         passHref
       >
-        <a href="placeholder">
+        <a href="placeholder" className="block relative z-0">
           <Card title={bike.title} image={bike.thumbnail} fit="responsive">
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {bike.manufacturer}
@@ -151,7 +166,7 @@ const Bikes = ({
             <div className=" font-bold mb-3 border-t pt-3 text-xl text-green-500">
               {formatMoney(bike.price)}
             </div>
-            <div className="flex flex-row flex-wrap">
+            <div className="flex flex-row flex-wrap pb-9">
               <div className="w-1/2">
                 <Stat title="Motor">{bike.motor} W</Stat>
               </div>
@@ -179,6 +194,27 @@ const Bikes = ({
           </Card>
         </a>
       </Link>
+      <div className="absolute z-10 bottom-2 left-2 right-2 text-sm opacity-75 hover:opacity-100 focus:opacity-100">
+        <button
+          onClick={() => handleCompareClick(bike.bike_id)}
+          type="button"
+          className={`px-2 py-1 block w-full rounded-b-lg  text-left uppercase tracking-wider text-white ${
+            compareList.includes(bike.bike_id)
+              ? 'bg-red-400 hover:bg-red-500'
+              : 'bg-blue-400 hover:bg-blue-500'
+          }`}
+        >
+          <FontAwesomeIcon
+            icon={
+              compareList.includes(bike.bike_id)
+                ? 'times-circle'
+                : 'plus-circle'
+            }
+            className=""
+          />{' '}
+          {compareList.includes(bike.bike_id) ? 'Remove' : 'Compare'}
+        </button>
+      </div>
     </div>
   ));
 
@@ -194,7 +230,7 @@ const Bikes = ({
     <Layout title="Bikes">
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">eBikes</h1>
-        <p>This is the bikes page.</p>
+        <p>Filter and compare eBikes.</p>
         <div className="lg:flex">
           <div className="rounded-lg mt-3 px-3 py-2 bg-white border border-gray-300 lg:rounded-none lg:bg-transparent lg:border-0 lg:p-0 lg:w-1/5 lg:mr-4">
             <div
@@ -240,8 +276,26 @@ const Bikes = ({
               />
             </section>
           </div>
-          <section className="flex flex-row flex-wrap -mx-2 my-2 lg:w-4/5">
-            {bikeOutput}
+          <section className="lg:w-4/5">
+            {compareList.length > 1 ? (
+              <div className="text-right mt-4 sticky top-0 z-20 bg-gray-200 p-2 -mx-2 ">
+                <Link href="/bikes/compare" passHref>
+                  <a
+                    href="placeholder"
+                    className="underline hover:no-underline"
+                  >
+                    <FontAwesomeIcon
+                      icon="th-list"
+                      className="mr-2 text-blue-500"
+                    />
+                    Compare {compareList.length} bikes
+                  </a>
+                </Link>
+              </div>
+            ) : null}
+            <div className="flex flex-row flex-wrap -mx-2 my-2">
+              {bikeOutput}
+            </div>
           </section>
         </div>
       </section>
