@@ -1,6 +1,6 @@
 ---
 title: 'Ariel Rider Grizzly vs. SUPER73 RX'
-date: '2021-07-07'
+date: '2021-07-06'
 ---
 
 <div class="relative" style="padding-top: 56.25%">

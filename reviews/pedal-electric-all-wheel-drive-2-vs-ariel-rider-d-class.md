@@ -1,6 +1,6 @@
 ---
 title: 'PEDAL Electric All Wheel Drive II vs. Ariel Rider D-Class'
-date: '2021-07-07'
+date: '2021-07-05'
 ---
 
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.

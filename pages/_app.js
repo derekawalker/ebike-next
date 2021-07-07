@@ -26,6 +26,7 @@ import {
   faFilter,
   faSort,
   faThList,
+  faSearch,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -54,6 +55,7 @@ library.add(
   faFilter,
   faSort,
   faThList,
+  faSearch,
   faCaretDown
 );
 
@@ -69,6 +71,7 @@ const App = ({ Component, pageProps, bikes }) => {
     top_speed: '0',
     voltage: '0',
     suspension: '0',
+    manufacturer: '0',
   });
   const [sortSelections, setSortSelections] = useState({
     field: 'price',

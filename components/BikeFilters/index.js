@@ -6,6 +6,8 @@ const BikeFilters = ({
   setFilterSelections,
   filtersShow,
   setFiltersShown,
+  companiesState,
+  setCompaniesState,
 }) => {
   const handleFilterChange = (event, category) => {
     setFilterSelections({
@@ -29,6 +31,15 @@ const BikeFilters = ({
   const handleSearch = () => {
     setFiltersShown(false);
   };
+
+  let manufacturerOptions = [{ value: 0, label: 'All' }];
+  const manufacturerOptions2 = companiesState.map((company) => ({
+    value: company.company_id,
+    label: company.title,
+  }));
+  manufacturerOptions = [...manufacturerOptions, ...manufacturerOptions2];
+
+  console.log(manufacturerOptions);
 
   const selectClasses =
     'flex flex-col p-2 lg:px-0 w-1/2 sm:w-1/4 md:w-auto lg:w-full';
@@ -120,22 +131,34 @@ const BikeFilters = ({
           onChange={(event) => handleFilterChange(event, 'suspension')}
         />
 
-        <div className={selectClasses}>
-          <button
-            className="bg-red-500 hover:bg-yellow-500 duration-300 text-white shadow py-2 px-4 rounded"
-            type="submit"
-          >
-            Reset
-          </button>
-        </div>
-        <div className={`${selectClasses} lg:hidden`}>
-          <button
-            className="bg-blue-500 hover:bg-green-500 duration-300 text-white shadow py-2 px-4 rounded"
-            type="button"
-            onClick={handleSearch}
-          >
-            Search
-          </button>
+        <Select
+          className={selectClasses}
+          options={manufacturerOptions}
+          value={filterSelections.manufacturer}
+          label="Manufacturer"
+          formId="bike-filters"
+          name="manufacturer"
+          onChange={(event) => handleFilterChange(event, 'manufacturer')}
+        />
+
+        <div className="flex-grow flex flex-wrap flex-row">
+          <div className={selectClasses}>
+            <button
+              className="bg-red-500 hover:bg-yellow-500 duration-300 text-white shadow py-2 px-4 rounded"
+              type="submit"
+            >
+              Reset
+            </button>
+          </div>
+          <div className={`${selectClasses} lg:hidden`}>
+            <button
+              className="bg-blue-500 hover:bg-green-500 duration-300 text-white shadow py-2 px-4 rounded"
+              type="button"
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+          </div>
         </div>
       </form>
     </div>

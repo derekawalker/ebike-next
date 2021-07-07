@@ -127,6 +127,14 @@ const Bikes = ({
     );
   }
 
+  // Manufacturer.
+  if (filterSelections.manufacturer !== '0') {
+    filteredBikes = _.filter(
+      filteredBikes,
+      (bike) => bike.manufacturer_id === filterSelections.manufacturer
+    );
+  }
+
   // Apply sort.
   if (sortSelections.field) {
     filteredBikes = _.sortBy(filteredBikes, [
@@ -268,6 +276,8 @@ const Bikes = ({
                   setFilterSelections={setFilterSelections}
                   filtersShown={filtersShown}
                   setFiltersShown={setFiltersShown}
+                  companiesState={companiesState}
+                  setCompaniesState={setCompaniesState}
                 />
               </div>
 
