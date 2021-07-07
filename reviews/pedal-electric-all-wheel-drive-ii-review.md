@@ -45,3 +45,7 @@ The AWD! I learned pretty quick that you probably don't want to be in AWD or fro
 ### Motors
 
 During my first ride, I was not able to figure out how to get above 20 mph (more on this later), but the acceleration and torque were still nice. The bike has a few levels of pedal assist, or you can always just twist the throttle for full power whenever you want it. The best part about the dual motors is going uphill! The bike just eats them up, but probably burn through the battery pretty quick. Anyway, going up hills with my previous rear-hub motor bike was sooooo slow - this bike is a definite improvement.
+
+### Suspension
+
+My previous bike only had rear suspension, so having full suspension was awesome for me. Although I could still feel some of the bigger bumps in the road, it was overall a really smooth ride. I don't think the suspension is top of the line, but it's not the bottom of the barrel either.

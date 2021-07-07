@@ -1,14 +1,22 @@
 .container {
   ul,
   ol {
-    @apply m-6 list-disc;
+    @apply ml-6 mb-6 list-disc;
 
     li {
-      @apply p-1 italic font-bold;
+      @apply p-1;
     }
   }
 
   p {
     @apply mb-4;
+  }
+
+  h2 {
+    @apply text-xl font-black uppercase tracking-wider;
+  }
+
+  h3 {
+    @apply text-lg font-black;
   }
 }
