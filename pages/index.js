@@ -1,15 +1,13 @@
 import Link from 'next/link';
-import { getSortedPostsData } from '../lib/posts';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
-import Date from '../components/Date';
 
 // Icons
 
 // Styles
 import { variables } from '../styles/style-variables';
 
-const Home = ({ allPostsData }) => (
+const Home = () => (
   <Layout title="Home" type="home">
     <section className="bg-gradient-to-br from-gray-700 to-gray-800 p-12 md:p-16 text-white font-bold text-center ">
       <h2 className="text-3xl md:text-4xl mb-4">
@@ -25,6 +23,8 @@ const Home = ({ allPostsData }) => (
               color="text-green-400"
               icon="motorcycle"
               title="Search & Compare"
+              align="center"
+              rounded
             >
               <p>Search, filters and compare the top scrambler style ebikes!</p>
             </Card>
@@ -35,30 +35,4 @@ const Home = ({ allPostsData }) => (
   </Layout>
 );
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
-    },
-  };
-}
-
 export default Home;
-
-// <section className={variables.sitePadding}>
-//   <h2 className="text-2xl font-black uppercase tracking-wider">Blog</h2>
-//   <ul>
-//     {allPostsData.map(({ id, date, title }) => (
-//       <li key={id}>
-//         <Link href={`/posts/${id}`} passHref>
-//           <a href="placeholder">{title}</a>
-//         </Link>
-//         <br />
-//         <small>
-//           <Date dateString={date} />
-//         </small>
-//       </li>
-//     ))}
-//   </ul>
-// </section>;

@@ -46,6 +46,7 @@ const Companies = ({
             color="green-500"
             image={company.image}
             fit="contain"
+            rounded
             background={company.background}
           >
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">

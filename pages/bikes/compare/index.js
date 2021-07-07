@@ -61,7 +61,7 @@ const CompareEbikes = ({
             <div className=" font-bold mb-3 border-t pt-1 text-lg text-green-500">
               {formatMoney(bike.price)}
             </div>
-            <div className={`pb-9 w-full ${styles.statWrapper}`}>
+            <div className={`pb-9 md:pb-10 w-full ${styles.statWrapper}`}>
               <Stat title="Motor">{bike.motor || '---'} W</Stat>
               <Stat title="Battery">{bike.battery || '---'} Ah</Stat>
               <Stat title="Volts">{bike.voltage || '---'} V</Stat>
@@ -80,11 +80,11 @@ const CompareEbikes = ({
           </Card>
         </a>
       </Link>
-      <div className="absolute z-10 bottom-2 left-2 right-2 text-sm opacity-75 hover:opacity-100 focus:opacity-100">
+      <div className=" z-50 -mt-10 mx-2 text-sm opacity-75 hover:opacity-100 focus:opacity-100 sticky bottom-2">
         <button
           onClick={() => handleCompareClick(bike.bike_id)}
           type="button"
-          className={`px-2 py-1 block w-full rounded-lg  text-left uppercase tracking-wider text-white ${
+          className={`px-4 py-2 block w-full rounded-lg text-left uppercase tracking-wider text-white ${
             compareList.includes(bike.bike_id)
               ? 'bg-red-400 hover:bg-red-500'
               : 'bg-blue-400 hover:bg-blue-500'
@@ -105,8 +105,8 @@ const CompareEbikes = ({
   ));
   return (
     <Layout title="Compare eBikes">
-      <section className={`${variables.sitePadding} ${styles.bikeContainer}`}>
-        <div className="flex flex-row  overflow-x-auto shadow-inner shadow-xl p-2 bg-gray-300 rounded-xl">
+      <section className={`${variables.sitePadding} ${styles.bikeContainer} `}>
+        <div className="flex flex-row overflow-x-auto h-vh70 ">
           {bikeOutput}
         </div>
       </section>

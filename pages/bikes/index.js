@@ -159,8 +159,13 @@ const Bikes = ({
         passHref
       >
         <a href="placeholder" className="block relative z-0">
-          <Card title={bike.title} image={bike.thumbnail} fit="responsive">
-            <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
+          <Card
+            title={bike.title}
+            image={bike.thumbnail}
+            fit="responsive"
+            rounded
+          >
+            <div className="-mt-3 mb-3 uppercase text-xs text-gray-700 tracking-wider font-thin">
               {bike.manufacturer}
             </div>
             <div className=" font-bold mb-3 border-t pt-3 text-xl text-green-500">
@@ -278,7 +283,7 @@ const Bikes = ({
           </div>
           <section className="lg:w-4/5">
             {compareList.length > 1 ? (
-              <div className="text-right mt-4 sticky top-0 z-20 bg-gray-200 p-2 -mx-2 ">
+              <div className="text-center mt-4 sticky top-24 z-20 bg-gradient-to-b from-gray-200 to-white rounded-b-xl py-2 px-4 shadow">
                 <Link href="/bikes/compare" passHref>
                   <a
                     href="placeholder"

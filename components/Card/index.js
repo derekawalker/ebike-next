@@ -10,6 +10,7 @@ const Card = ({
   fit,
   background,
   align,
+  rounded,
 }) => {
   let backgroundColor = 'bg-white';
 
@@ -52,7 +53,9 @@ const Card = ({
   }
   return (
     <div
-      className={`md:flex-1 text-${align} border border-gray-300 bg-white shadow-lg rounded-xl overflow-hidden h-full`}
+      className={`md:flex-1 text-${align} border border-gray-300 bg-white shadow-lg ${
+        rounded ? 'rounded-xl' : ''
+      } overflow-hidden h-full`}
     >
       {image && imageOutput}
 

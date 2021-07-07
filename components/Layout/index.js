@@ -10,7 +10,7 @@ import Header from '../Header';
 import { variables } from '../../styles/style-variables';
 import styles from './styles.module.scss';
 
-const Layout = ({ title, type, children }) => (
+const Layout = ({ title, description, type, children }) => (
   <div>
     <Head>
       <link rel="icon" href="/favicon.ico" />
@@ -19,7 +19,7 @@ const Layout = ({ title, type, children }) => (
       </title>
       <meta
         name="description"
-        content="Learn how to build a personal website using Next.js"
+        content={description || 'Search and compare eBikes.'}
       />
       <meta
         property="og:image"
@@ -32,18 +32,20 @@ const Layout = ({ title, type, children }) => (
       <body />
     </Head>
     <Header />
-    <div
-      className={`${variables.sitePaddingX} ${
-        styles.breadcrumbs
-      } bg-gray-900 text-gray-400 ${
-        type === 'bike'
-          ? styles.bike
-          : type === 'home'
-          ? styles.home
-          : undefined
-      }`}
-    >
-      <Breadcrumbs labelsToUppercase rootLabel="Home" />
+    <div className="bg-gray-900 relative sticky top-16 z-40">
+      <div
+        className={`${variables.sitePaddingX} ${
+          styles.breadcrumbs
+        } bg-gray-900 text-gray-400 ${
+          type === 'bike'
+            ? styles.bike
+            : type === 'home'
+            ? styles.home
+            : undefined
+        } `}
+      >
+        <Breadcrumbs labelsToUppercase rootLabel="Home" />
+      </div>
     </div>
     <main className="bg-gray-200 text-black">{children}</main>
     <footer className="bg-gray-900 text-base font-thin text-white text-center p-4">

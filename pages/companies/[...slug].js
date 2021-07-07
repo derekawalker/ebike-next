@@ -66,7 +66,7 @@ const Company = ({ companies, bikes, params }) => {
         passHref
       >
         <a href="placeholder">
-          <Card title={bike.title} image={bike.image} fit="responsive">
+          <Card title={bike.title} image={bike.image} fit="responsive" rounded>
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {bike.manufacturer}
             </div>

@@ -1,5 +1,6 @@
 .container {
-  ul {
+  ul,
+  ol {
     @apply m-6 list-disc;
 
     li {
