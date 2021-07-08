@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
 
@@ -9,6 +10,12 @@ import { variables } from '../styles/style-variables';
 
 const Home = () => (
   <Layout title="Home" type="home">
+    <Head>
+      <script
+        type="text/javascript"
+        src="http://classic.avantlink.com/affiliate_app_confirm.php?mode=js&authResponse=9806922b722d94e7ecd901121fab716635795553"
+      />
+    </Head>
     <section className="bg-gradient-to-br from-blue-500 to-blue-700 p-12 md:p-16 text-white font-bold text-center ">
       <h2 className="text-3xl md:text-4xl mb-4">
         Looking for a fat tire eBike?
