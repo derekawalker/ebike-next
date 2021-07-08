@@ -47,12 +47,12 @@ const Header = () => {
                 <a href="placeholder">
                   <img
                     className="block lg:hidden h-8 w-auto"
-                    src="/images/ebike_scrambler_badge.svg"
+                    src="/images/ebike_companies_badge.svg"
                     alt={siteinfo.title}
                   />
                   <img
                     className="hidden lg:block h-8 w-auto"
-                    src="/images/ebike_scrambler_logo.svg"
+                    src="/images/ebike_companies_logo.svg"
                     alt={siteinfo.title}
                   />
                 </a>

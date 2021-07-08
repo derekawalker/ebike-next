@@ -21,12 +21,7 @@ const Layout = ({ title, description, type, children }) => (
         name="description"
         content={description || 'Search and compare eBikes.'}
       />
-      <meta
-        property="og:image"
-        content={`https://og-image.vercel.app/${encodeURI(
-          siteinfo.title
-        )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-      />
+      <meta property="og:image" content="/images/bikes_sunset.jpg" />
       <meta name="og:title" content={siteinfo.title} />
       <meta name="twitter:card" content="summary_large_image" />
       <body />
@@ -49,7 +44,7 @@ const Layout = ({ title, description, type, children }) => (
     </div>
     <main className="bg-gray-200 text-black">{children}</main>
     <footer className="bg-gray-900 text-base font-thin text-white text-center p-4">
-      <p>Copyright eBikeScrambler.com. All Rights Reserved.</p>
+      <p>Copyright eBikeCompanies.com. All Rights Reserved.</p>
     </footer>
   </div>
 );

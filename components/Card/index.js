@@ -65,7 +65,7 @@ const Card = ({
         </div>
       )}
       <div className="px-6 py-4 md:px-4 md:py-3">
-        <h4 className="text-xl font-bold mb-4 leading-tight">{title}</h4>
+        <h4 className="text-xl font-bold mb-2 leading-tight">{title}</h4>
         {children}
       </div>
     </div>
