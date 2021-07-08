@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['ebikecompanies.com'],
+    domains: ['ebikecompanies.com', 'ebikescrambler.com'],
   },
 };
