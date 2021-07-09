@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import _ from 'lodash';
-import { useEffect } from 'react';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
+import { useCompanyContext } from '../../contexts/companies';
 
 // Styles
 import { variables } from '../../styles/style-variables';
@@ -18,18 +17,12 @@ export const getStaticProps = async () => {
   };
 };
 
-const Companies = ({
-  companies,
-  bikesState,
-  setBikesState,
-  companiesState,
-  setCompaniesState,
-}) => {
-  useEffect(() => {
-    if (companies !== companiesState) {
-      setCompaniesState(companies);
-    }
-  }, [companiesState]);
+const Companies = ({ companies }) => {
+  const [companiesState, setCompaniesState] = useCompanyContext();
+
+  if (companies !== companiesState) {
+    setCompaniesState(companies);
+  }
 
   let companyOutput = companies.map((company) => (
     <div
@@ -48,6 +41,7 @@ const Companies = ({
             fit="contain"
             rounded
             background={company.background}
+            align="center"
           >
             <div className="-mt-3 mb-3 uppercase text-xs text-gray-500 tracking-wider font-thin">
               {company.manufacturer}

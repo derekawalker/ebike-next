@@ -180,7 +180,7 @@ const Bikes = ({ bikes, companies }) => {
             fit="responsive"
             rounded
           >
-            <div className="-mt-3 mb-3 uppercase text-xs text-gray-700 tracking-wider font-thin">
+            <div className="-mt-2 mb-3 uppercase text-xs text-gray-700 tracking-wider font-thin">
               {bike.manufacturer}
             </div>
             <div className=" font-bold mb-3 border-t pt-3 text-xl text-green-500">

@@ -44,7 +44,7 @@ const Home = () => (
               align="center"
               rounded
             >
-              <p>Search, filters and compare the top scrambler style ebikes!</p>
+              <p>Search, filters and compare the top scrambler style eBikes!</p>
             </Card>
           </a>
         </Link>
