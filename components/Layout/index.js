@@ -23,8 +23,6 @@ const Layout = ({ title, description, type, children }) => (
       <meta property="og:image" content="/images/bikes_sunset.jpg" />
       <meta name="og:title" content={siteinfo.title} />
       <meta name="twitter:card" content="summary_large_image" />
-
-      <body />
     </Head>
     <Header />
     <div className="bg-gray-900 relative sticky top-16 z-40">

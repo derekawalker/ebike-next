@@ -1,5 +1,6 @@
 import selectOptions from './selectOptions';
 import Select from '../Select';
+import * as gtag from '../../lib/gtag';
 
 const BikeFilters = ({
   filterSelections,
@@ -13,6 +14,12 @@ const BikeFilters = ({
     setFilterSelections({
       ...filterSelections,
       [category]: event.target.value,
+    });
+    gtag.event({
+      action: 'filters_applied',
+      category: 'bikes',
+      label: 'Bike Filters Applied',
+      value: category,
     });
   };
 

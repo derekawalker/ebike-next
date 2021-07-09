@@ -277,7 +277,7 @@ const Bikes = ({ bikes, companies }) => {
                 filtersShown ? 'block' : 'hidden lg:block'
               }`}
             >
-              <div className="border-t border-gray-400 border-dashed pt-3 lg:pt-0 lg:border-0 lg:pt-0">
+              <div className="border-t border-gray-400 border-dashed pt-3 lg:pt-0 lg:border-0 ">
                 <BikeFilters
                   filterSelections={bikeFiltersState}
                   setFilterSelections={setBikeFiltersState}
