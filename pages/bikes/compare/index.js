@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect } from 'react';
 import Layout from '../../../components/Layout';
 import Card from '../../../components/Card';
-import Date from '../../../components/Date';
 import Stat from '../../../components/Stat';
 import styles from './styles.module.scss';
 import * as gtag from '../../../lib/gtag';
@@ -21,6 +21,15 @@ const CompareEbikes = () => {
   const bikesToCompare = bikesState.filter((bike) =>
     bikeCompareState.includes(bike.bike_id)
   );
+
+  useEffect(() => {
+    gtag.event({
+      action: 'compare_page_viewed',
+      category: 'compare',
+      label: 'Bikes Compared',
+      value: bikeCompareState,
+    });
+  }, []);
 
   const handleCompareClick = (id) => {
     console.log(bikeCompareState);
@@ -101,7 +110,7 @@ const CompareEbikes = () => {
           <button
             onClick={() => handleCompareClick(bike.bike_id)}
             type="button"
-            className={`px-4 py-2 block w-full rounded-lg text-left uppercase tracking-wider text-white ${
+            className={`px-4 py-2 block w-full flex items-center rounded-lg text-left uppercase tracking-wider text-white ${
               bikeCompareState.includes(bike.bike_id)
                 ? 'bg-red-400 hover:bg-red-500'
                 : 'bg-blue-400 hover:bg-blue-500'
@@ -113,7 +122,7 @@ const CompareEbikes = () => {
                   ? 'times-circle'
                   : 'plus-circle'
               }
-              className=""
+              className="w-4 mr-1"
             />{' '}
             {bikeCompareState.includes(bike.bike_id) ? 'Remove' : 'Compare'}
           </button>
@@ -121,13 +130,6 @@ const CompareEbikes = () => {
       </div>
     ));
   }
-
-  gtag.event({
-    action: 'compare_page_viewed',
-    category: 'compare',
-    label: 'Bikes Compared',
-    value: bikeCompareStateg,
-  });
 
   return (
     <Layout title="Compare eBikes">

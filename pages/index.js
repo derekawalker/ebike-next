@@ -12,7 +12,7 @@ const Home = () => (
     <Head>
       <script
         type="text/javascript"
-        src="http://classic.avantlink.com/affiliate_app_confirm.php?mode=js&authResponse=9806922b722d94e7ecd901121fab716635795553"
+        src="https://classic.avantlink.com/affiliate_app_confirm.php?mode=js&authResponse=9806922b722d94e7ecd901121fab716635795553"
       />
     </Head>
     <section className="relative bg-gray-800 h-vh40">
