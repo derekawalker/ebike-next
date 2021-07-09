@@ -1,6 +1,6 @@
 import '../styles/global.scss';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faTimes,
@@ -30,6 +30,7 @@ import {
   faSearch,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
+import * as gtag from '../lib/gtag';
 import { BikeWrapper } from '../contexts/bikes';
 import { CompanyWrapper } from '../contexts/companies';
 import { BikeFiltersWrapper } from '../contexts/bike-filters';
@@ -70,13 +71,10 @@ const App = ({ Component, pageProps, bikes }) => {
 
   const router = useRouter();
 
-  const handleRouteChange = (url: URL) => {
-    window.gtag('config', 'G-403TDY37XJ', {
-      page_path: url,
-    });
-  };
-
   useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
