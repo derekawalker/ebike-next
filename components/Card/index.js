@@ -11,6 +11,7 @@ const Card = ({
   background,
   align,
   rounded,
+  truncate,
 }) => {
   let backgroundColor = 'bg-white';
 
@@ -64,8 +65,14 @@ const Card = ({
           <FontAwesomeIcon icon={icon} className="flex-grow w-16 h-16" />
         </div>
       )}
-      <div className="px-6 py-4 md:px-4 md:py-3">
-        <h4 className="text-xl font-bold mb-2 leading-tight">{title}</h4>
+      <div className="px-4 py-3">
+        <h4
+          className={`text-xl font-bold mb-2 leading-tight ${
+            truncate ? 'truncate' : null
+          }`}
+        >
+          {title}
+        </h4>
         {children}
       </div>
     </div>

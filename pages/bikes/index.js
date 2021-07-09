@@ -172,7 +172,7 @@ const Bikes = ({ bikes, companies }) => {
 
   let bikeOutput = filteredBikes.map((bike) => (
     <div
-      className="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 p-2 relative"
+      className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/3 xl:w-1/4 2xl:w-1/5 p-1 lg:p-2 relative"
       key={bike.bike_id}
     >
       <Link
@@ -189,14 +189,15 @@ const Bikes = ({ bikes, companies }) => {
             image={bike.thumbnail}
             fit="responsive"
             rounded
+            truncate
           >
-            <div className="-mt-2 mb-3 uppercase text-xs text-gray-700 tracking-wider font-thin">
+            <div className="-mt-2 mb-3 uppercase text-xs text-gray-700 tracking-wider font-thin truncate">
               {bike.manufacturer}
             </div>
             <div className=" font-bold mb-3 border-t pt-3 text-xl text-green-500">
               {formatMoney(bike.price)}
             </div>
-            <div className="flex flex-row flex-wrap pb-9">
+            <div className="flex flex-row flex-wrap pb-7">
               <div className="w-1/2">
                 <Stat title="Motor">{bike.motor} W</Stat>
               </div>
@@ -224,7 +225,7 @@ const Bikes = ({ bikes, companies }) => {
           </Card>
         </a>
       </Link>
-      <div className="absolute z-10 bottom-2 left-2 right-2 text-sm opacity-75 hover:opacity-100 focus:opacity-100">
+      <div className="absolute z-10 bottom-2 left-2 right-2 lg:bottom-3 lg:left-3 lg:right-3 text-sm opacity-75 hover:opacity-100 focus:opacity-100">
         <button
           onClick={() => handleCompareClick(bike.bike_id)}
           type="button"
@@ -264,7 +265,7 @@ const Bikes = ({ bikes, companies }) => {
         <div className="lg:flex">
           <div className="rounded-lg mt-3 px-3 py-2 bg-white border border-gray-300 lg:rounded-none lg:bg-transparent lg:border-0 lg:p-0 lg:w-1/5 lg:mr-4">
             <div
-              className="flex items-center p-3 justify-between lg:p-0"
+              className="flex items-center p-1 justify-between lg:p-0"
               onClick={handleFilterToggle}
             >
               <div className="flex items-center">
@@ -273,7 +274,7 @@ const Bikes = ({ bikes, companies }) => {
                   Filters:
                 </h4>
               </div>
-              <div className="block lg:hidden">
+              <div className="block lg:hidden w-4">
                 {filtersShown ? (
                   <FontAwesomeIcon icon="chevron-up" className="mr-1" />
                 ) : (
@@ -325,7 +326,7 @@ const Bikes = ({ bikes, companies }) => {
                 </Link>
               </div>
             ) : null}
-            <div className="flex flex-row flex-wrap -mx-2 my-2">
+            <div className="flex flex-row flex-wrap -mx-1 lg:-mx-2 my-2">
               {bikeOutput}
             </div>
           </section>
