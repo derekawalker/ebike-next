@@ -11,7 +11,7 @@ import ProgressBar from '../../components/ProgressBar';
 // Styles
 import { variables } from '../../styles/style-variables';
 
-const bikeUrl = 'https://ebikecompanies.com/drupal/api/bikes';
+const bikeUrl = 'https://data.ebikecompanies.com/api/bikes';
 
 export const getStaticProps = async ({ params }) => {
   const response = await fetch(bikeUrl);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
@@ -8,139 +8,146 @@ import Card from '../../components/Card';
 import BikeFilters from '../../components/BikeFilters';
 import BikeSorting from '../../components/BikeSorting';
 import Stat from '../../components/Stat';
+import { useBikeContext } from '../../contexts/bikes';
+import { useCompanyContext } from '../../contexts/companies';
+import { useBikeFiltersContext } from '../../contexts/bike-filters';
+import { useBikeSortContext } from '../../contexts/bike-sort';
+import { useBikeCompareContext } from '../../contexts/bike-compare';
 
 // Styles
 import { variables } from '../../styles/style-variables';
 
-const bikeUrl = 'https://ebikecompanies.com/drupal/api/bikes';
+const bikeUrl = 'https://data.ebikecompanies.com/api/bikes';
+const companiesUrl = 'https://data.ebikecompanies.com/api/companies';
 
 export const getStaticProps = async () => {
-  const response = await fetch(bikeUrl);
-  const data = await response.json();
+  const bikeResponse = await fetch(bikeUrl);
+  const bikeData = await bikeResponse.json();
+
+  const companyResponse = await fetch(companiesUrl);
+  const companyData = await companyResponse.json();
 
   return {
-    props: { bikes: data },
+    props: {
+      bikes: bikeData,
+      companies: companyData,
+    },
+    revalidate: 1,
   };
 };
 
-const Bikes = ({
-  bikes,
-  bikesState,
-  setBikesState,
-  companiesState,
-  setCompaniesState,
-  filterSelections,
-  setFilterSelections,
-  sortSelections,
-  setSortSelections,
-  compareList,
-  setCompareList,
-}) => {
+const Bikes = ({ bikes, companies }) => {
   const [filtersShown, setFiltersShown] = useState(false);
+  const [bikesState, setBikesState] = useBikeContext();
+  const [companiesState, setCompaniesState] = useCompanyContext();
+  const [bikeFiltersState, setBikeFiltersState] = useBikeFiltersContext();
+  const [bikeSortState, setBikeSortState] = useBikeSortContext();
+  const [bikeCompareState, setBikeCompareState] = useBikeCompareContext();
 
   const handleFilterToggle = () => {
     setFiltersShown(!filtersShown);
   };
 
   const handleCompareClick = (id) => {
-    console.log(compareList);
-    if (compareList.includes(id)) {
-      const newList = compareList.filter((item) => item !== id);
-      setCompareList(newList);
+    if (bikeCompareState.includes(id)) {
+      const newList = bikeCompareState.filter((item) => item !== id);
+      setBikeCompareState(newList);
     } else {
-      setCompareList([...compareList, id]);
+      setBikeCompareState([...bikeCompareState, id]);
     }
   };
 
-  useEffect(() => {
-    if (bikes !== bikesState) {
-      setBikesState(bikes);
-    }
-  }, [bikesState]);
+  if (bikes !== bikesState) {
+    setBikesState(bikes);
+  }
+
+  if (companies !== companiesState) {
+    setCompaniesState(companies);
+  }
 
   // Apply filters.
-  let filteredBikes = bikes;
+  let filteredBikes = bikesState;
 
   // Min Price.
-  if (filterSelections.min_price !== '0') {
+  if (bikeFiltersState.min_price !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.price) >= Number(filterSelections.min_price)
+      (bike) => Number(bike.price) >= Number(bikeFiltersState.min_price)
     );
   }
 
   // Max Price.
-  if (filterSelections.max_price !== '0') {
+  if (bikeFiltersState.max_price !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.price) <= Number(filterSelections.max_price)
+      (bike) => Number(bike.price) <= Number(bikeFiltersState.max_price)
     );
   }
 
   // Motor.
-  if (filterSelections.motor !== '0') {
+  if (bikeFiltersState.motor !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.motor) >= Number(filterSelections.motor)
+      (bike) => Number(bike.motor) >= Number(bikeFiltersState.motor)
     );
   }
 
   // Battery.
-  if (filterSelections.battery !== '0') {
+  if (bikeFiltersState.battery !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.battery) >= Number(filterSelections.battery)
+      (bike) => Number(bike.battery) >= Number(bikeFiltersState.battery)
     );
   }
 
   // Voltage.
-  if (filterSelections.voltage !== '0') {
+  if (bikeFiltersState.voltage !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.voltage) >= Number(filterSelections.voltage)
+      (bike) => Number(bike.voltage) >= Number(bikeFiltersState.voltage)
     );
   }
 
   // Range.
-  if (filterSelections.range !== '0') {
+  if (bikeFiltersState.range !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.range) >= Number(filterSelections.range)
+      (bike) => Number(bike.range) >= Number(bikeFiltersState.range)
     );
   }
 
   // Top Speed.
-  if (filterSelections.top_speed !== '0') {
+  if (bikeFiltersState.top_speed !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => Number(bike.top_speed) >= Number(filterSelections.top_speed)
+      (bike) => Number(bike.top_speed) >= Number(bikeFiltersState.top_speed)
     );
   }
 
   // Suspension.
-  if (filterSelections.suspension !== '0') {
+  if (bikeFiltersState.suspension !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
       (bike) =>
         bike.suspension.toLowerCase() ===
-        filterSelections.suspension.toLowerCase()
+        bikeFiltersState.suspension.toLowerCase()
     );
   }
 
   // Manufacturer.
-  if (filterSelections.manufacturer !== '0') {
+  if (bikeFiltersState.manufacturer !== '0') {
     filteredBikes = _.filter(
       filteredBikes,
-      (bike) => bike.manufacturer_id === filterSelections.manufacturer
+      (bike) => bike.manufacturer_id === bikeFiltersState.manufacturer
     );
   }
 
   // Apply sort.
-  if (sortSelections.field) {
+  if (bikeSortState.field) {
     filteredBikes = _.sortBy(filteredBikes, [
       (bike) => {
-        const { field } = sortSelections;
-        if (sortSelections.type === 'number') {
+        const { field } = bikeSortState;
+        if (bikeSortState.type === 'number') {
           return Number(bike[field]);
         }
         return bike[field];
@@ -148,7 +155,7 @@ const Bikes = ({
       'title',
     ]);
 
-    if (sortSelections.direction !== 'asc') {
+    if (bikeSortState.direction !== 'asc') {
       filteredBikes.reverse();
     }
   }
@@ -212,20 +219,20 @@ const Bikes = ({
           onClick={() => handleCompareClick(bike.bike_id)}
           type="button"
           className={`px-2 py-1 block w-full rounded-b-lg  text-left uppercase tracking-wider text-white ${
-            compareList.includes(bike.bike_id)
+            bikeCompareState.includes(bike.bike_id)
               ? 'bg-red-400 hover:bg-red-500'
               : 'bg-blue-400 hover:bg-blue-500'
           }`}
         >
           <FontAwesomeIcon
             icon={
-              compareList.includes(bike.bike_id)
+              bikeCompareState.includes(bike.bike_id)
                 ? 'times-circle'
                 : 'plus-circle'
             }
             className=""
           />{' '}
-          {compareList.includes(bike.bike_id) ? 'Remove' : 'Compare'}
+          {bikeCompareState.includes(bike.bike_id) ? 'Remove' : 'Compare'}
         </button>
       </div>
     </div>
@@ -233,7 +240,7 @@ const Bikes = ({
 
   if (!filteredBikes.length) {
     bikeOutput = (
-      <Card title="Sorry!" icon="XIcon" color="text-red-500">
+      <Card title="Sorry!" icon="times" color="text-red-500">
         <p>No eBikes match your criteria. Try changing your filters.</p>
       </Card>
     );
@@ -272,8 +279,8 @@ const Bikes = ({
             >
               <div className="border-t border-gray-400 border-dashed pt-3 lg:pt-0 lg:border-0 lg:pt-0">
                 <BikeFilters
-                  filterSelections={filterSelections}
-                  setFilterSelections={setFilterSelections}
+                  filterSelections={bikeFiltersState}
+                  setFilterSelections={setBikeFiltersState}
                   filtersShown={filtersShown}
                   setFiltersShown={setFiltersShown}
                   companiesState={companiesState}
@@ -286,13 +293,13 @@ const Bikes = ({
                 <h4 className="font-black tracking-wider uppercase">Sort:</h4>
               </div>
               <BikeSorting
-                sortSelections={sortSelections}
-                setSortSelections={setSortSelections}
+                sortSelections={bikeSortState}
+                setSortSelections={setBikeSortState}
               />
             </section>
           </div>
           <section className="lg:w-4/5">
-            {compareList.length > 1 ? (
+            {bikeCompareState.length > 1 ? (
               <div className="text-center mt-4 sticky top-24 z-20 bg-gradient-to-b from-gray-200 to-white rounded-b-xl py-2 px-4 shadow">
                 <Link href="/bikes/compare" passHref>
                   <a
@@ -303,7 +310,7 @@ const Bikes = ({
                       icon="th-list"
                       className="mr-2 text-blue-500"
                     />
-                    Compare {compareList.length} bikes
+                    Compare {bikeCompareState.length} bikes
                   </a>
                 </Link>
               </div>

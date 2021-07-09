@@ -7,7 +7,7 @@ import Card from '../../components/Card';
 // Styles
 import { variables } from '../../styles/style-variables';
 
-const companyUrl = 'https://ebikecompanies.com/drupal/api/companies';
+const companyUrl = 'https://data.ebikecompanies.com/api/companies';
 
 export const getStaticProps = async () => {
   const response = await fetch(companyUrl);
@@ -60,7 +60,7 @@ const Companies = ({
 
   if (!companies.length) {
     companyOutput = (
-      <Card title="Sorry!" icon="XIcon" color="text-red-500">
+      <Card title="Sorry!" icon="times" color="text-red-500">
         <p>No Companies match your criteria. Try changing your filters.</p>
       </Card>
     );

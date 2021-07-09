@@ -8,8 +8,8 @@ import Card from '../../components/Card';
 // Styles
 import { variables } from '../../styles/style-variables';
 
-const companyUrl = 'https://ebikecompanies.com/drupal/api/companies';
-const bikesUrl = 'https://ebikecompanies.com/drupal/api/bikes';
+const companyUrl = 'https://data.ebikecompanies.com/api/companies';
+const bikesUrl = 'https://data.ebikecompanies.com/api/bikes';
 
 // export const getStaticProps = async ({ params }) => {
 //   const response = await fetch(companyUrl);

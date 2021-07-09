@@ -39,8 +39,6 @@ const BikeFilters = ({
   }));
   manufacturerOptions = [...manufacturerOptions, ...manufacturerOptions2];
 
-  console.log(manufacturerOptions);
-
   const selectClasses =
     'flex flex-col p-2 lg:px-0 w-1/2 sm:w-1/4 md:w-auto lg:w-full';
 

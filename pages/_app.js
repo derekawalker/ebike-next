@@ -29,6 +29,11 @@ import {
   faSearch,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { BikeWrapper } from '../contexts/bikes';
+import { CompanyWrapper } from '../contexts/companies';
+import { BikeFiltersWrapper } from '../contexts/bike-filters';
+import { BikeSortWrapper } from '../contexts/bike-sort';
+import { BikeCompareWrapper } from '../contexts/bike-compare';
 
 library.add(
   faTimes,
@@ -60,42 +65,26 @@ library.add(
 );
 
 const App = ({ Component, pageProps, bikes }) => {
-  const [bikesState, setBikesState] = useState([]);
-  const [companiesState, setCompaniesState] = useState([]);
-  const [filterSelections, setFilterSelections] = useState({
-    min_price: '0',
-    max_price: '0',
-    motor: '0',
-    battery: '0',
-    range: '0',
-    top_speed: '0',
-    voltage: '0',
-    suspension: '0',
-    manufacturer: '0',
-  });
-  const [sortSelections, setSortSelections] = useState({
-    field: 'price',
-    type: 'string',
-    direction: 'asc',
-  });
   const [compareList, setCompareList] = useState([]);
 
   return (
-    <Component
-      {...pageProps}
-      currentPage
-      setCurrentPage
-      bikesState={bikesState}
-      setBikesState={setBikesState}
-      companiesState={companiesState}
-      setCompaniesState={setCompaniesState}
-      filterSelections={filterSelections}
-      setFilterSelections={setFilterSelections}
-      sortSelections={sortSelections}
-      setSortSelections={setSortSelections}
-      compareList={compareList}
-      setCompareList={setCompareList}
-    />
+    <BikeWrapper>
+      <CompanyWrapper>
+        <BikeFiltersWrapper>
+          <BikeSortWrapper>
+            <BikeCompareWrapper>
+              <Component
+                {...pageProps}
+                currentPage
+                setCurrentPage
+                compareList={compareList}
+                setCompareList={setCompareList}
+              />
+            </BikeCompareWrapper>
+          </BikeSortWrapper>
+        </BikeFiltersWrapper>
+      </CompanyWrapper>
+    </BikeWrapper>
   );
 };
 
