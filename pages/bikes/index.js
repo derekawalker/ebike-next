@@ -218,7 +218,7 @@ const Bikes = ({ bikes, companies }) => {
         <button
           onClick={() => handleCompareClick(bike.bike_id)}
           type="button"
-          className={`px-2 py-1 block w-full rounded-b-lg  text-left uppercase tracking-wider text-white ${
+          className={`px-2 py-1 block w-full rounded-b-lg flex items-center text-left uppercase tracking-wider text-white ${
             bikeCompareState.includes(bike.bike_id)
               ? 'bg-red-400 hover:bg-red-500'
               : 'bg-blue-400 hover:bg-blue-500'
@@ -230,8 +230,8 @@ const Bikes = ({ bikes, companies }) => {
                 ? 'times-circle'
                 : 'plus-circle'
             }
-            className=""
-          />{' '}
+            className="w-4 mr-1"
+          />
           {bikeCompareState.includes(bike.bike_id) ? 'Remove' : 'Compare'}
         </button>
       </div>
@@ -277,7 +277,7 @@ const Bikes = ({ bikes, companies }) => {
                 filtersShown ? 'block' : 'hidden lg:block'
               }`}
             >
-              <div className="border-t border-gray-400 border-dashed pt-3 lg:pt-0 lg:border-0 ">
+              <div className="border-t border-gray-400 border-dashed pt-3 lg:pt-0 lg:border-0">
                 <BikeFilters
                   filterSelections={bikeFiltersState}
                   setFilterSelections={setBikeFiltersState}
