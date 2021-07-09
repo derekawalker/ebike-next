@@ -27,7 +27,7 @@ const CompareEbikes = () => {
       action: 'compare_page_viewed',
       category: 'compare',
       label: 'Bikes Compared',
-      value: bikeCompareState,
+      value: 1,
     });
   }, []);
 

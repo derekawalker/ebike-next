@@ -19,7 +19,7 @@ const BikeFilters = ({
       action: 'filters_applied',
       category: 'bikes',
       label: 'Bike Filters Applied',
-      value: category,
+      value: 1,
     });
   };
 

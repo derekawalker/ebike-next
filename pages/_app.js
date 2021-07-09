@@ -28,6 +28,7 @@ import {
   faSort,
   faThList,
   faSearch,
+  faInfoCircle,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 import * as gtag from '../lib/gtag';
@@ -63,6 +64,7 @@ library.add(
   faSort,
   faThList,
   faSearch,
+  faInfoCircle,
   faCaretDown
 );
 

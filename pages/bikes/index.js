@@ -188,7 +188,9 @@ const Bikes = ({ bikes, companies }) => {
             </div>
             <div className="flex flex-row flex-wrap pb-9">
               <div className="w-1/2">
-                <Stat title="Motor">{bike.motor} W</Stat>
+                <Stat title="Motor" tooltip="test">
+                  {bike.motor} W
+                </Stat>
               </div>
 
               <div className="w-1/2">
