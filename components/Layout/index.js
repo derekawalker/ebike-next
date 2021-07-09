@@ -24,6 +24,22 @@ const Layout = ({ title, description, type, children }) => (
       <meta property="og:image" content="/images/bikes_sunset.jpg" />
       <meta name="og:title" content={siteinfo.title} />
       <meta name="twitter:card" content="summary_large_image" />
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-403TDY37XJ"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-403TDY37XJ', { page_path: window.location.pathname });
+          `,
+        }}
+      />
       <body />
     </Head>
     <Header />

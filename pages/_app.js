@@ -1,4 +1,5 @@
 import '../styles/global.scss';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -66,6 +67,21 @@ library.add(
 
 const App = ({ Component, pageProps, bikes }) => {
   const [compareList, setCompareList] = useState([]);
+
+  const router = useRouter();
+
+  const handleRouteChange = (url: URL) => {
+    window.gtag('config', 'G-403TDY37XJ', {
+      page_path: url,
+    });
+  };
+
+  useEffect(() => {
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <BikeWrapper>
