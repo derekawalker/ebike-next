@@ -6,6 +6,7 @@ import Card from '../../../components/Card';
 import Date from '../../../components/Date';
 import Stat from '../../../components/Stat';
 import styles from './styles.module.scss';
+import * as gtag from '../../../lib/gtag';
 
 import { useBikeContext } from '../../../contexts/bikes';
 import { useBikeCompareContext } from '../../../contexts/bike-compare';
@@ -120,6 +121,13 @@ const CompareEbikes = () => {
       </div>
     ));
   }
+
+  gtag.event({
+    action: 'compare_page_viewed',
+    category: 'compare',
+    label: 'Bikes Compared',
+    value: bikeCompareStateg,
+  });
 
   return (
     <Layout title="Compare eBikes">

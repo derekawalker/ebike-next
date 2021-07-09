@@ -300,15 +300,15 @@ const Bikes = ({ bikes, companies }) => {
           </div>
           <section className="lg:w-4/5">
             {bikeCompareState.length > 1 ? (
-              <div className="text-center mt-4 sticky top-24 z-20 bg-gradient-to-b from-gray-200 to-white rounded-b-xl py-2 px-4 shadow">
+              <div className="text-center mt-4 sticky top-28 z-20 bg-blue-500 rounded-xl py-2 px-4 shadow">
                 <Link href="/bikes/compare" passHref>
                   <a
                     href="placeholder"
-                    className="underline hover:no-underline"
+                    className="underline hover:no-underline flex items-center justify-center text-white"
                   >
                     <FontAwesomeIcon
                       icon="th-list"
-                      className="mr-2 text-blue-500"
+                      className="mr-2 text-blue-300 w-4"
                     />
                     Compare {bikeCompareState.length} bikes
                   </a>

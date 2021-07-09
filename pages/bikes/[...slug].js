@@ -212,7 +212,7 @@ const Bike = ({
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat title="Suspension" icon="coins" color="text-purple-500">
+              <Stat title="Suspension" icon="coins" color="text-yellow-600">
                 {thisBike.suspension}
               </Stat>
             </div>
