@@ -60,6 +60,13 @@ const selectOptions = {
     { value: 'rear', label: 'Rear' },
     { value: 'full', label: 'Full' },
   ],
+  motor_type: [
+    { value: '0', label: 'All' },
+    { value: 'Front Hub', label: 'Front Hub' },
+    { value: 'Rear Hub', label: 'Rear Hub' },
+    { value: 'Dual Hub', label: 'Dual Hub' },
+    { value: 'Mid Drive', label: 'Mid Drive' },
+  ],
 };
 
 export default selectOptions;

@@ -32,6 +32,8 @@ const BikeFilters = ({
       top_speed: '0',
       voltage: '0',
       suspension: '0',
+      motor_type: '0',
+      manufacturer: '0',
     });
   };
 
@@ -88,6 +90,16 @@ const BikeFilters = ({
 
         <Select
           className={selectClasses}
+          options={selectOptions.motor_type}
+          value={filterSelections.motor_type}
+          label="Motor Type"
+          formId="bike-filters"
+          name="motor_type"
+          onChange={(event) => handleFilterChange(event, 'motor_type')}
+        />
+
+        <Select
+          className={selectClasses}
           options={selectOptions.battery}
           value={filterSelections.battery}
           label="Min Battery"
@@ -114,6 +126,7 @@ const BikeFilters = ({
           formId="bike-filters"
           name="range"
           onChange={(event) => handleFilterChange(event, 'range')}
+          tooltip="max pedal-assisted range"
         />
 
         <Select

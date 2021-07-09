@@ -198,7 +198,12 @@ const Bike = ({
               </Stat>
             </div>
             <div className="w-1/2 sm:w-full lg:w-1/2">
-              <Stat title="Range" icon="road" color="text-gray-700">
+              <Stat
+                title="Range"
+                icon="road"
+                color="text-gray-700"
+                tooltip="max pedal-assisted range"
+              >
                 {thisBike.voltage} miles
               </Stat>
             </div>

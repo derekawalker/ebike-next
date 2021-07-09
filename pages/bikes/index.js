@@ -92,6 +92,16 @@ const Bikes = ({ bikes, companies }) => {
     );
   }
 
+  // Suspension.
+  if (bikeFiltersState.motor_type !== '0') {
+    filteredBikes = _.filter(
+      filteredBikes,
+      (bike) =>
+        bike.motor_type.toLowerCase() ===
+        bikeFiltersState.motor_type.toLowerCase()
+    );
+  }
+
   // Battery.
   if (bikeFiltersState.battery !== '0') {
     filteredBikes = _.filter(
@@ -188,9 +198,7 @@ const Bikes = ({ bikes, companies }) => {
             </div>
             <div className="flex flex-row flex-wrap pb-9">
               <div className="w-1/2">
-                <Stat title="Motor" tooltip="test">
-                  {bike.motor} W
-                </Stat>
+                <Stat title="Motor">{bike.motor} W</Stat>
               </div>
 
               <div className="w-1/2">
@@ -260,7 +268,7 @@ const Bikes = ({ bikes, companies }) => {
               onClick={handleFilterToggle}
             >
               <div className="flex items-center">
-                <FontAwesomeIcon icon="filter" className="mr-1" />
+                <FontAwesomeIcon icon="filter" className="mr-1 w-3 h-3" />
                 <h4 className="font-black tracking-wider uppercase">
                   Filters:
                 </h4>
@@ -291,7 +299,7 @@ const Bikes = ({ bikes, companies }) => {
               </div>
 
               <div className="flex items-center mt-4 border-t pt-4 border-gray-400 border-dashed">
-                <FontAwesomeIcon icon="sort" className="w-4 h-4 mr-1" />
+                <FontAwesomeIcon icon="sort" className="w-3 h-3 mr-1" />
                 <h4 className="font-black tracking-wider uppercase">Sort:</h4>
               </div>
               <BikeSorting

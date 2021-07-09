@@ -13,6 +13,7 @@ export const BikeFiltersWrapper = ({ children }) => {
     voltage: '0',
     suspension: '0',
     manufacturer: '0',
+    motor_type: '0',
   });
 
   return (

@@ -8,10 +8,10 @@ const Stat = ({ icon, title, color, tooltip, children }) => {
       <div className="relative flex flex-col items-center group ml-1">
         <FontAwesomeIcon
           icon="info-circle"
-          className="w-3 text-gray-300 group-hover:text-gray-500"
+          className="w-3 text-gray-400 group-hover:text-gray-500"
         />
         <div className="absolute bottom-0 flex flex-col items-center opacity-0 mb-4 group-hover:opacity-100">
-          <span className="rounded relative z-10 px-2 py-1 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-xl normal-case">
+          <span className="rounded tracking-wider relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-xl normal-case text-center font-normal block">
             {tooltip}
           </span>
           <div className="w-3 h-3 -mt-2 bg-black transform rotate-45" />
@@ -27,7 +27,7 @@ const Stat = ({ icon, title, color, tooltip, children }) => {
         </div>
       )}
       <div className="pt-2 pb-1 md:py-2 flex-grow">
-        <h4 className="font-bold uppercase text-xs tracking-wider flex items-center">
+        <h4 className="font-bold uppercase text-xs  flex items-center">
           {title}
           {tooltipOutput}
         </h4>
