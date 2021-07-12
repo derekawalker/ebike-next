@@ -105,7 +105,12 @@ const Company = ({ companies, bikes, params }) => {
   ));
 
   return (
-    <Layout title={`${thisCompany.title}`} type="company">
+    <Layout
+      title={`${thisCompany.title}`}
+      type="company"
+      description={`A list of eBikes made by ${thisCompany.title}, an electric bike company.`}
+      image={thisCompany.thumbnail}
+    >
       <article className="">
         <div className="">
           <div className="border-b">

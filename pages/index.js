@@ -8,7 +8,7 @@ import Card from '../components/Card';
 import { variables } from '../styles/style-variables';
 
 const Home = () => (
-  <Layout title="Home" type="home">
+  <Layout title="Search and Compare eBikes" type="home">
     <Head>
       <script
         type="text/javascript"
@@ -35,7 +35,7 @@ const Home = () => (
     </section>
     <section className={`${variables.sitePadding} md:flex md:flex-row  `}>
       <div className="w-full p-2">
-        <Link href="/bikes">
+        <Link href="/bikes" passHref>
           <a href="placeholder">
             <Card
               color="text-yellow-400"
@@ -44,13 +44,13 @@ const Home = () => (
               align="center"
               rounded
             >
-              <p>Search, filters and compare the top scrambler style eBikes!</p>
+              <p>Search, filter and compare the top scrambler style eBikes!</p>
             </Card>
           </a>
         </Link>
       </div>
       <div className="w-full p-2">
-        <Link href="/reviews">
+        <Link href="/reviews" passHref>
           <a href="placeholder">
             <Card
               color="text-green-400"
@@ -65,7 +65,7 @@ const Home = () => (
         </Link>
       </div>
       <div className="w-full p-2">
-        <Link href="/companies">
+        <Link href="/companies" passHref>
           <a href="placeholder">
             <Card
               color="text-blue-400"

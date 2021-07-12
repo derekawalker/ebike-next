@@ -258,7 +258,10 @@ const Bikes = ({ bikes, companies }) => {
   }
 
   return (
-    <Layout title="Bikes">
+    <Layout
+      title="Compare eBikes"
+      description="Compare specs and prices to find the best eBikes for the money."
+    >
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">eBikes</h1>
         <p>Filter and compare eBikes.</p>

@@ -8,7 +8,10 @@ import styles from './styles.module.scss';
 
 export default function Review({ reviewData }) {
   return (
-    <Layout title={reviewData.title}>
+    <Layout
+      title={reviewData.title}
+      description={`${reviewData.title} written ${reviewData.date}.`}
+    >
       <article className={variables.sitePadding}>
         <h1 className="text-2xl font-bold mb-3">{reviewData.title}</h1>
         <div className="text-xs uppercase tracking-wider font-thin mb-3 text-gray-700">

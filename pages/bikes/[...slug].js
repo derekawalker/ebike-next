@@ -140,7 +140,12 @@ const Bike = ({
   );
 
   return (
-    <Layout title={`${thisBike.manufacturer}: ${thisBike.title}`} type="bike">
+    <Layout
+      title={`${thisBike.manufacturer}: ${thisBike.title}`}
+      type="bike"
+      description={`Specs and pricing for ${thisBike.title} by ${thisBike.manufacturer}.`}
+      image={thisBike.thumbnail}
+    >
       <article className="sm:flex sm:flex-row sm:flex-wrap ">
         <div className={` sm:w-1/2 md:w-3/5 bg-white `}>
           <div className="border-b ">

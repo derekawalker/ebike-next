@@ -61,7 +61,10 @@ const Companies = ({ companies }) => {
   }
 
   return (
-    <Layout title="eBike Companies">
+    <Layout
+      title="eBike Companies"
+      description="A list of the best eBike companies and manufacturers of electric bikes."
+    >
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">
           eBike Companies

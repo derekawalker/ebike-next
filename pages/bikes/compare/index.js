@@ -132,7 +132,10 @@ const CompareEbikes = () => {
   }
 
   return (
-    <Layout title="Compare eBikes">
+    <Layout
+      title="Compare eBikes"
+      description="Side-by-side comparison tool for eBikes (electric bikes)."
+    >
       <section className={`${variables.sitePadding} ${styles.bikeContainer} `}>
         <div className="flex flex-row overflow-x-auto h-vh70 ">
           {bikeOutput}

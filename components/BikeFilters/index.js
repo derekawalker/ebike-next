@@ -184,17 +184,3 @@ const BikeFilters = ({
 };
 
 export default BikeFilters;
-
-//  <input
-//           className="bg-white shadow-inner rounded-l py-2 px-4 flex-1 border border-gray-300"
-//           id="email"
-//           type="email"
-//           aria-label="email address"
-//           placeholder="Enter your email address"
-//         />
-//         <button
-//           className="bg-blue-600 hover:bg-blue-700 duration-300 text-white shadow py-2 px-4 rounded"
-//           type="submit"
-//         >
-//           Sign Up
-//         </button>

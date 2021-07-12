@@ -10,7 +10,10 @@ import Date from '../../components/Date';
 import { variables } from '../../styles/style-variables';
 
 const Reviews = ({ allReviewsData }) => (
-  <Layout title="eBike Reviews">
+  <Layout
+    title="eBike Reviews"
+    description="Find the best eBikes with our reviews and comparisons of popular eBikes. "
+  >
     <section className={variables.sitePadding}>
       <h1 className="text-2xl font-black uppercase tracking-wider">
         eBike Reviews
