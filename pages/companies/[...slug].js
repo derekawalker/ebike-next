@@ -11,18 +11,6 @@ import { variables } from '../../styles/style-variables';
 const companyUrl = 'https://data.ebikecompanies.com/api/companies';
 const bikesUrl = 'https://data.ebikecompanies.com/api/bikes';
 
-// export const getStaticProps = async ({ params }) => {
-//   const response = await fetch(companyUrl);
-//   const data = await response.json();
-
-//   return {
-//     props: {
-//       companies: data,
-//       params,
-//     },
-//   };
-// };
-
 export const getStaticProps = async ({ params }) => {
   const companyRes = await fetch(companyUrl);
   const companyData = await companyRes.json();

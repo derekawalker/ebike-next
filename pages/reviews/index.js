@@ -1,56 +1,76 @@
+import { useState } from 'react';
 import Link from 'next/link';
-import { getSortedReviewsData } from '../../lib/reviews';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
-import Date from '../../components/Date';
-
-// Icons
 
 // Styles
 import { variables } from '../../styles/style-variables';
 
-const Reviews = ({ allReviewsData }) => (
-  <Layout
-    title="eBike Reviews"
-    description="Find the best eBikes with our reviews and comparisons of popular eBikes. "
-  >
-    <section className={variables.sitePadding}>
-      <h1 className="text-2xl font-black uppercase tracking-wider">
-        eBike Reviews
-      </h1>
-      <p>Lateste reviews for fat tire electric bikes.</p>
-    </section>
-    <section className={variables.sitePadding}>
-      <ul>
-        {allReviewsData.map(({ id, date, title }) => (
-          <li key={id} className="my-5">
-            <Link href={`/reviews/${id}`} passHref>
-              <a
-                href="placeholder"
-                className="font-bold text-2xl text-blue-500 hover:text-blue-400"
-              >
-                {title}
-              </a>
-            </Link>
-            <br />
-            <small>
-              <Date dateString={date} />
-            </small>
-          </li>
-        ))}
-      </ul>
-    </section>
-    ;
-  </Layout>
-);
+const reviewUrl = 'https://data.ebikecompanies.com/api/reviews';
 
-export async function getStaticProps() {
-  const allReviewsData = getSortedReviewsData();
+export const getStaticProps = async () => {
+  const response = await fetch(reviewUrl);
+  const data = await response.json();
+
   return {
-    props: {
-      allReviewsData,
-    },
+    props: { reviews: data },
   };
-}
+};
+
+const Reviews = ({ reviews }) => {
+  const [reviewsState, setReviewsState] = useState(reviews);
+
+  if (reviews !== reviewsState) {
+    setReviewsState(reviews);
+  }
+
+  let reviewOutput = reviews.map((review) => (
+    <div
+      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
+      key={review.review_id}
+    >
+      <Link href={`/reviews${review.path}`} passHref>
+        <a href="placeholder">
+          <Card
+            title={review.title}
+            color="green-500"
+            image={review.image}
+            rounded
+          >
+            <div className="uppercase text-xs text-gray-500 tracking-wider font-thin">
+              {review.created}
+            </div>
+          </Card>
+        </a>
+      </Link>
+    </div>
+  ));
+
+  if (!reviews.length) {
+    reviewOutput = (
+      <Card title="Sorry!" icon="times" color="text-red-500">
+        <p>No Reviews available.</p>
+      </Card>
+    );
+  }
+
+  return (
+    <Layout title="eBike Reviews" description="eBike reviews and commentary.">
+      <section className={variables.sitePadding}>
+        <h1 className="text-2xl font-black uppercase tracking-wider">
+          eBike Reviews
+        </h1>
+        <p>This is the reviews page.</p>
+        <div className="">
+          <section className="flex flex-row flex-wrap -mx-2 my-2">
+            {reviewOutput}
+          </section>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+Reviews.propTypes = {};
 
 export default Reviews;
