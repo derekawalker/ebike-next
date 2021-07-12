@@ -144,7 +144,7 @@ const Bike = ({
       title={`${thisBike.manufacturer}: ${thisBike.title}`}
       type="bike"
       description={`Specs and pricing for ${thisBike.title} by ${thisBike.manufacturer}.`}
-      image={thisBike.thumbnail}
+      image={thisBike.image}
     >
       <article className="sm:flex sm:flex-row sm:flex-wrap ">
         <div className={` sm:w-1/2 md:w-3/5 bg-white `}>
@@ -152,9 +152,9 @@ const Bike = ({
             <Image
               src={thisBike.image}
               alt={thisBike.title}
-              layout="responsive"
-              width={400}
-              height={300}
+              width={4000}
+              height={3000}
+              objectFit="responsive"
             />
           </div>
 

@@ -109,7 +109,7 @@ const Company = ({ companies, bikes, params }) => {
       title={`${thisCompany.title}`}
       type="company"
       description={`A list of eBikes made by ${thisCompany.title}, an electric bike company.`}
-      image={thisCompany.thumbnail}
+      image={thisCompany.image}
     >
       <article className="">
         <div className="">
