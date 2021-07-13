@@ -30,7 +30,9 @@
     }
   }
 
-  &.bike {
+  &.bike,
+  &.review,
+  &.product {
     nav ol {
       li {
         &:last-child {
