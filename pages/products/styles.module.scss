@@ -1,0 +1,11 @@
+.productWrapper {
+  ol,
+  ul {
+    @apply pl-5 my-2;
+
+    li {
+      list-style: disc;
+      @apply py-1;
+    }
+  }
+}

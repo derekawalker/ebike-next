@@ -1,6 +1,6 @@
 const selectOptions = {
   price: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: '1000', label: '$1,000' },
     { value: '1500', label: '$1,500' },
     { value: '2000', label: '$2,000' },
@@ -10,7 +10,7 @@ const selectOptions = {
     { value: '5000', label: '$5,000' },
   ],
   motor: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: '250', label: '250W' },
     { value: '500', label: '500W' },
     { value: '750', label: '750W' },
@@ -21,7 +21,7 @@ const selectOptions = {
     { value: '5000', label: '5,000W' },
   ],
   battery: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: '5', label: '5Ah' },
     { value: '10', label: '10Ah' },
     { value: '15', label: '15Ah' },
@@ -30,7 +30,7 @@ const selectOptions = {
     { value: '30', label: '30Ah' },
   ],
   range: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: '20', label: '20 miles' },
     { value: '30', label: '30 miles' },
     { value: '40', label: '40 miles' },
@@ -39,13 +39,13 @@ const selectOptions = {
     { value: '70', label: '70 miles' },
   ],
   voltage: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: '36', label: '36V' },
     { value: '48', label: '48V' },
     { value: '52', label: '52V' },
   ],
   top_speed: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: '15', label: '15 mph' },
     { value: '20', label: '20 mph' },
     { value: '25', label: '25 mph' },
@@ -54,14 +54,14 @@ const selectOptions = {
     { value: '40', label: '40 mph' },
   ],
   suspension: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: 'none', label: 'None' },
     { value: 'front', label: 'Front' },
     { value: 'rear', label: 'Rear' },
     { value: 'full', label: 'Full' },
   ],
   motor_type: [
-    { value: '0', label: 'All' },
+    { value: '0', label: 'Any' },
     { value: 'Front Hub', label: 'Front Hub' },
     { value: 'Rear Hub', label: 'Rear Hub' },
     { value: 'Dual Hub', label: 'Dual Hub' },

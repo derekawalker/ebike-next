@@ -92,7 +92,7 @@ const Bikes = ({ bikes, companies }) => {
     );
   }
 
-  // Suspension.
+  // Motor Type.
   if (bikeFiltersState.motor_type !== '0') {
     filteredBikes = _.filter(
       filteredBikes,

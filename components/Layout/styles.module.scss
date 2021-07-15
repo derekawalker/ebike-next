@@ -30,9 +30,7 @@
     }
   }
 
-  &.bike,
-  &.review,
-  &.product {
+  &.bike {
     nav ol {
       li {
         &:last-child {
@@ -52,6 +50,34 @@
         }
 
         &:nth-last-child(3) {
+          display: none;
+
+          &::after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  &.product {
+    nav ol {
+      li {
+        &:last-child {
+          display: none;
+
+          &::after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  &.review {
+    nav ol {
+      li {
+        &:last-child {
           display: none;
 
           &::after {

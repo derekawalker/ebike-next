@@ -56,6 +56,10 @@ const Layout = ({ title, description, type, image, children }) => {
               ? styles.bike
               : type === 'home'
               ? styles.home
+              : type === 'review'
+              ? styles.review
+              : type === 'product'
+              ? styles.product
               : undefined
           } `}
         >

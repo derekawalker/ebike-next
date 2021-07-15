@@ -25,7 +25,8 @@ const BikeFilters = ({
 
   const handleReset = () => {
     setFilterSelections({
-      price: '0',
+      min_price: '0',
+      max_price: '0',
       motor: '0',
       battery: '0',
       range: '0',
@@ -41,7 +42,7 @@ const BikeFilters = ({
     setFiltersShown(false);
   };
 
-  let manufacturerOptions = [{ value: 0, label: 'All' }];
+  let manufacturerOptions = [{ value: 0, label: 'Any' }];
   const manufacturerOptions2 = companiesState.map((company) => ({
     value: company.company_id,
     label: company.title,

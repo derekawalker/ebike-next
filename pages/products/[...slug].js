@@ -5,8 +5,10 @@ import { formatMoney } from 'accounting';
 import Layout from '../../components/Layout';
 import Stat from '../../components/Stat';
 import Card from '../../components/Card';
+
 // Styles
 import { variables } from '../../styles/style-variables';
+import styles from './styles.module.scss';
 
 const productUrl = 'https://data.ebikecompanies.com/api/products';
 
@@ -24,10 +26,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Product = ({ products, params }) => {
-  console.log(params);
-
   const thisSlug = params.slug[0];
-  console.log(thisSlug);
   const product = _.filter(
     products,
     (item) => item.path.substring(1) === thisSlug
@@ -39,41 +38,40 @@ const Product = ({ products, params }) => {
     <Layout
       title={`${thisProduct.title}`}
       type="product"
-      description={`A list of eBikes made by ${thisProduct.title}, an electric product product.`}
+      description={`Specs and pricing for ${thisProduct.title} by ${thisProduct.manufacturer}.`}
       image={thisProduct.image}
     >
-      <article className="">
-        <div className="">
-          <div className="border-b">
-            <div
-              className={`w-full  border-b p-7 bg-${thisProduct.background}`}
-            >
-              <div className="relative h-16">
-                <Image
-                  src={thisProduct.image}
-                  alt={thisProduct.title}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            </div>
+      <article className="sm:flex sm:flex-row sm:flex-wrap ">
+        <div className={` sm:w-1/2 md:w-3/5 bg-white `}>
+          <div className="border-b ">
+            <Image
+              src={thisProduct.image}
+              alt={thisProduct.title}
+              width={4000}
+              height={3000}
+              objectFit="responsive"
+            />
           </div>
         </div>
 
-        <div className={`${variables.sitePadding} `}>
-          <h1 className="text-2xl font-bold ">{thisProduct.title}</h1>
+        <div className={`${variables.sitePadding} sm:w-1/2 md:w-2/5`}>
+          <h1 className="text-xl">{thisProduct.title}</h1>
+
+          <div className="font-bold text-green-500 text-2xl border-b border-gray-300 pb-3 mb-3">
+            {formatMoney(thisProduct.price)}
+          </div>
           {thisProduct.link && (
             <div className="font-bold mb-3 ">
               <a
                 href={thisProduct.link}
-                className="border rounded-3xl border-blue-500 text-blue-500 uppercase tracking-wider px-4 py-2 block text-center bg-blue-100"
+                className="border rounded-3xl border-green-500 text-green-500 uppercase tracking-wider px-4 py-2 block text-center bg-green-100"
               >
-                Visit Website
+                Buy Now
               </a>
             </div>
           )}
           <div
-            className="mb-3 border-t border-gray-300 pt-3"
+            className={styles.productWrapper}
             dangerouslySetInnerHTML={{ __html: thisProduct.body }}
           />
         </div>
