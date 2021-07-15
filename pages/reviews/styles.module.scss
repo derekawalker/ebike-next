@@ -1,0 +1,27 @@
+.reviewWrapper {
+  ol,
+  ul {
+    @apply pl-5 my-2;
+
+    li {
+      list-style: disc;
+      @apply py-1;
+    }
+  }
+
+  p {
+    @apply my-2;
+  }
+
+  h1 {
+    @apply text-3xl font-bold mt-5;
+  }
+
+  h2 {
+    @apply text-2xl font-bold mt-5;
+  }
+
+  h3 {
+    @apply text-lg font-black mt-5;
+  }
+}

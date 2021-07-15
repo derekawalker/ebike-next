@@ -54,20 +54,19 @@ const Card = ({
   }
   return (
     <div
-      className={`md:flex-1 text-${align} border border-gray-300 bg-white shadow-lg ${
+      className={`md:flex-1 text-${align} border border-gray-300 bg-white shadow-lg relative ${
         rounded ? 'rounded-xl' : ''
       } overflow-hidden h-full`}
     >
       {image && imageOutput}
-
       {icon && (
-        <div className={`${color} bg-gray-800 text-${align} flex p-6`}>
-          <FontAwesomeIcon icon={icon} className="flex-grow w-16 h-16" />
+        <div className={`${color} text-${align} flex p-2  w-full`}>
+          <FontAwesomeIcon icon={icon} className="flex-grow w-4 h-4" />
         </div>
       )}
       <div className="px-4 py-3">
         <h4
-          className={`text-xl font-bold mb-2 leading-tight ${
+          className={`text-lg font-bold mb-2 leading-tight ${
             truncate ? 'truncate' : null
           }`}
         >

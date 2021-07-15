@@ -1,5 +1,8 @@
 const sortOptions = {
-  fields: [{ value: 'category', label: 'Motor', type: 'number' }],
+  fields: [
+    { value: 'price', label: 'Price', type: 'number' },
+    { value: 'category', label: 'Category', type: 'string' },
+  ],
   directions: [
     { value: 'asc', label: 'Ascending' },
     { value: 'desc', label: 'Descending' },

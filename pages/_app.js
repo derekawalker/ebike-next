@@ -29,6 +29,10 @@ import {
   faThList,
   faSearch,
   faInfoCircle,
+  faSuitcase,
+  faHardHat,
+  faDumbbell,
+  faLock,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 import * as gtag from '../lib/gtag';
@@ -65,6 +69,10 @@ library.add(
   faThList,
   faSearch,
   faInfoCircle,
+  faSuitcase,
+  faHardHat,
+  faDumbbell,
+  faLock,
   faCaretDown
 );
 

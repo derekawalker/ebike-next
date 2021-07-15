@@ -67,9 +67,9 @@ const Companies = ({ companies }) => {
     >
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">
-          eBike Companies
+          Electric Bike Companies
         </h1>
-        <p>This is the companies page.</p>
+        <p>A selection of the best electric bike companies out there.</p>
         <div className="">
           <section className="flex flex-row flex-wrap -mx-2 my-2">
             {companyOutput}

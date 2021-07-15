@@ -26,7 +26,7 @@ const Reviews = ({ reviews }) => {
 
   let reviewOutput = reviews.map((review) => (
     <div
-      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
+      className="w-full sm:w-1/2 md:w-1/3 xl:w-1/4 p-2"
       key={review.review_id}
     >
       <Link href={`/reviews${review.path}`} passHref>
@@ -60,7 +60,7 @@ const Reviews = ({ reviews }) => {
         <h1 className="text-2xl font-black uppercase tracking-wider">
           eBike Reviews
         </h1>
-        <p>This is the reviews page.</p>
+        <p>Electric bike reviews, comparisons, and commentary.</p>
         <div className="">
           <section className="flex flex-row flex-wrap -mx-2 my-2">
             {reviewOutput}

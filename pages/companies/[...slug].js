@@ -94,7 +94,7 @@ const Company = ({ companies, bikes, params }) => {
 
   return (
     <Layout
-      title={`${thisCompany.title}`}
+      title={`${thisCompany.title} eBike Company`}
       type="company"
       description={`A list of eBikes made by ${thisCompany.title}, an electric bike company.`}
       image={thisCompany.image}
@@ -122,8 +122,10 @@ const Company = ({ companies, bikes, params }) => {
           {thisCompany.link && (
             <div className="font-bold mb-3 ">
               <a
+                target="_blank"
                 href={thisCompany.link}
                 className="border rounded-3xl border-blue-500 text-blue-500 uppercase tracking-wider px-4 py-2 block text-center bg-blue-100"
+                rel="noreferrer"
               >
                 Visit Website
               </a>

@@ -63,8 +63,10 @@ const Product = ({ products, params }) => {
           {thisProduct.link && (
             <div className="font-bold mb-3 ">
               <a
+                target="_blank"
                 href={thisProduct.link}
                 className="border rounded-3xl border-green-500 text-green-500 uppercase tracking-wider px-4 py-2 block text-center bg-green-100"
+                rel="noreferrer"
               >
                 Buy Now
               </a>

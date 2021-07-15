@@ -95,20 +95,38 @@ const Products = ({ products }) => {
 
   let productOutput = filteredProducts.map((product) => (
     <div
-      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2"
+      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2"
       key={product.product_id}
     >
       <Link href={`/products${product.path}`} passHref>
         <a href="placeholder">
           <Card
             title={product.title}
-            color="green-500"
             image={product.image}
             rounded
             fit="responsive"
             truncate
+            color="text-white bg-yellow-500"
+            icon={
+              product.category === 'Bags and Storage'
+                ? 'suitcase'
+                : product.category === 'Lights'
+                ? 'lightbulb'
+                : product.category === 'Helmets'
+                ? 'hard-hat'
+                : product.category === 'Wheels and Tires'
+                ? 'record-vinyl'
+                : product.category === 'Handlebar Accessories'
+                ? 'dumbbell'
+                : product.category === 'Locks and Security'
+                ? 'lock'
+                : 'motorcycle'
+            }
           >
-            <div className="uppercase border-t px-3 text-center rounded-xl bg-green-500 hover:bg-green-400 py-2 text-lg text-white tracking-wider font-bold">
+            <div className="-mt-2 mb-3 uppercase text-xs text-gray-700 tracking-wider font-thin truncate">
+              {product.category}
+            </div>
+            <div className="uppercase border-t px-2 text-center rounded-xl border border-green-400 bg-green-50 hover:bg-green-400 hover:text-white py-1 text-lg text-green-400 tracking-wider font-bold">
               {formatMoney(product.price)}
             </div>
           </Card>
@@ -132,9 +150,13 @@ const Products = ({ products }) => {
     >
       <section className={variables.sitePadding}>
         <h1 className="text-2xl font-black uppercase tracking-wider">
-          eProduct Products
+          Electric Bike Products and Accessories
         </h1>
-        <p>This is the products page.</p>
+        <p>
+          Our products section contains only hand-picked items that we have
+          tested and recommend. Listed products are specific to 20"x4" eBikes
+          where applicable.
+        </p>
         <div className="lg:flex">
           <div className="rounded-lg mt-3 px-3 py-2 bg-white border border-gray-300 lg:rounded-none lg:bg-transparent lg:border-0 lg:p-0 lg:w-1/5 lg:mr-4">
             <div

@@ -37,7 +37,7 @@ const ProductFilters = ({
 
   let categoryOptions = [{ value: 0, label: 'All' }];
   const categoryOptions2 = [
-    ...new Set(productsState.map((item) => item.category)),
+    ...new Set(productsState.map((item) => item.category).sort()),
   ];
   const categoryOptions3 = categoryOptions2.map((item) => ({
     value: item.replace(/\s+/g, '-').toLowerCase(),

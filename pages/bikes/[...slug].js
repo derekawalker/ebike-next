@@ -141,7 +141,7 @@ const Bike = ({
 
   return (
     <Layout
-      title={`${thisBike.manufacturer}: ${thisBike.title}`}
+      title={`${thisBike.manufacturer}: ${thisBike.title} eBike`}
       type="bike"
       description={`Specs and pricing for ${thisBike.title} by ${thisBike.manufacturer}.`}
       image={thisBike.image}
@@ -179,8 +179,10 @@ const Bike = ({
           {thisBike.link && (
             <div className="font-bold mb-3 ">
               <a
+                target="_blank"
                 href={thisBike.link}
                 className="border rounded-3xl border-blue-500 text-blue-500 uppercase tracking-wider px-4 py-2 block text-center bg-blue-100"
+                rel="noreferrer"
               >
                 Visit Website
               </a>

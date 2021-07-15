@@ -2,9 +2,11 @@ import _ from 'lodash';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
+import styles from './styles.module.scss';
 import Layout from '../../components/Layout';
 import Stat from '../../components/Stat';
 import Card from '../../components/Card';
+
 // Styles
 import { variables } from '../../styles/style-variables';
 
@@ -45,33 +47,35 @@ const Review = ({ reviews, params }) => {
       <article className="">
         <div className="">
           <div className="border-b">
-            <div className={`w-full  border-b p-7 bg-${thisReview.background}`}>
-              <div className="relative h-16">
+            <div className={`w-full  border-b bg-${thisReview.background}`}>
+              <div className="relative h-64 bg-white">
                 <Image
                   src={thisReview.image}
                   alt={thisReview.title}
                   layout="fill"
-                  objectFit="contain"
+                  objectFit="cover"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div className={`${variables.sitePadding} `}>
+        <div className={`${variables.reviewPadding} `}>
           <h1 className="text-2xl font-bold ">{thisReview.title}</h1>
           {thisReview.link && (
             <div className="font-bold mb-3 ">
               <a
+                target="_blank"
                 href={thisReview.link}
                 className="border rounded-3xl border-blue-500 text-blue-500 uppercase tracking-wider px-4 py-2 block text-center bg-blue-100"
+                rel="noreferrer"
               >
                 Visit Website
               </a>
             </div>
           )}
           <div
-            className="mb-3 border-t border-gray-300 pt-3"
+            className={`${styles.reviewWrapper} mb-3  pt-3`}
             dangerouslySetInnerHTML={{ __html: thisReview.body }}
           />
         </div>

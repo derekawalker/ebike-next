@@ -25,11 +25,9 @@ const Home = () => (
         />
       </div>
       <div className="h-vh40 w-full flex items-center content-center flex-row flex-wrap px-6 text-white font-bold text-center absolute top-0 left-0 right-0 z-20 bg-gray-800 bg-opacity-75">
-        <h2 className="text-3xl md:text-4xl mb-4 w-full ">
-          Search and compare eBikes
-        </h2>
+        <h2 className="text-3xl md:text-4xl mb-4 w-full ">Compare eBikes</h2>
         <p className="font-normal w-full ">
-          Compare hundreds of electric bikes here!
+          Search and compare hundreds of electric bikes here!
         </p>
       </div>
     </section>
@@ -65,22 +63,41 @@ const Home = () => (
         </Link>
       </div>
       <div className="w-full p-2">
-        <Link href="/companies" passHref>
+        <Link href="/products" passHref>
           <a href="placeholder">
             <Card
               color="text-blue-400"
               icon="motorcycle"
-              title="eBike Companies"
+              title="eBike Accessories"
               align="center"
               rounded
             >
-              <p>
-                View a list of eBike companies making scrambler style ebikes.
-              </p>
+              <p>View a list of eBike accessories for 20"x4" ebikes.</p>
             </Card>
           </a>
         </Link>
       </div>
+    </section>
+    <section className={`${variables.sitePadding} text-center`}>
+      <h1 className="text-xl font-bold">eBike Companies</h1>
+      <p className="mb-3">
+        Searching for the perfect eBike can be a daunting task. eBikeCompanaies
+        makes it easy to compare hundreds of{' '}
+        <Link href="/bikes" passHref>
+          <a className="underline" href="placeholder">
+            electric bikes
+          </a>
+        </Link>
+        , and can help you find exactly what your are looking for.
+      </p>
+      <p className="mb-3">
+        Our bike comparison tools can help you discover which bikes fit your
+        needs, and which will give you the best bang for your buck.
+      </p>
+      <p className="mb-3">
+        <strong>Note:</strong> We specialize in bikes with 20"x4" tires, but we
+        may add other electric bike categories in the future.
+      </p>
     </section>
   </Layout>
 );
