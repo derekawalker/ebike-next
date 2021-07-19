@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://ebikecompanies.com',
+  siteUrl: 'https://www.ebikecompanies.com',
   generateRobotsTxt: true,
 };

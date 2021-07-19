@@ -12,6 +12,7 @@ const Card = ({
   align,
   rounded,
   truncate,
+  iconSize,
 }) => {
   let backgroundColor = 'bg-white';
 
@@ -52,6 +53,19 @@ const Card = ({
       </div>
     );
   }
+
+  const iconOutput = (
+    <div
+      className={`${color} text-${align} flex ${
+        iconSize === 'lg' ? 'p-3' : 'p-2'
+      }  w-full`}
+    >
+      <FontAwesomeIcon
+        icon={icon}
+        className={`flex-grow ${iconSize === 'lg' ? 'w-10 h-10' : 'w-4 h-4'}`}
+      />
+    </div>
+  );
   return (
     <div
       className={`md:flex-1 text-${align} border border-gray-300 bg-white shadow-lg relative ${
@@ -59,11 +73,7 @@ const Card = ({
       } overflow-hidden h-full`}
     >
       {image && imageOutput}
-      {icon && (
-        <div className={`${color} text-${align} flex p-2  w-full`}>
-          <FontAwesomeIcon icon={icon} className="flex-grow w-4 h-4" />
-        </div>
-      )}
+      {icon && iconOutput}
       <div className="px-4 py-3">
         <h4
           className={`text-lg font-bold mb-2 leading-tight ${

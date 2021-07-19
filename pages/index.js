@@ -36,8 +36,9 @@ const Home = () => (
         <Link href="/bikes" passHref>
           <a href="placeholder">
             <Card
-              color="text-yellow-400"
+              color="text-yellow-400 bg-gray-800"
               icon="search"
+              iconSize="lg"
               title="Search & Compare"
               align="center"
               rounded
@@ -51,8 +52,9 @@ const Home = () => (
         <Link href="/reviews" passHref>
           <a href="placeholder">
             <Card
-              color="text-green-400"
+              color="text-green-400 bg-gray-800"
               icon="comment-dots"
+              iconSize="lg"
               title="eBike Reviews"
               align="center"
               rounded
@@ -66,8 +68,9 @@ const Home = () => (
         <Link href="/products" passHref>
           <a href="placeholder">
             <Card
-              color="text-blue-400"
+              color="text-blue-400 bg-gray-800"
               icon="motorcycle"
+              iconSize="lg"
               title="eBike Accessories"
               align="center"
               rounded
