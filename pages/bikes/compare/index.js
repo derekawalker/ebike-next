@@ -46,8 +46,7 @@ const CompareEbikes = () => {
       <Card
         title="Sorry!"
         icon="times"
-        color="text-red-500"
-        rounded
+        color="text-red-500 bg-gray-700"
         align="center"
       >
         <p>

@@ -48,7 +48,13 @@ const Reviews = ({ reviews }) => {
 
   if (!reviews.length) {
     reviewOutput = (
-      <Card title="Sorry!" icon="times" color="text-red-500">
+      <Card
+        title="Sorry!"
+        icon="times"
+        color="text-red-500 bg-gray-700"
+        rounded
+        align="center"
+      >
         <p>No Reviews available.</p>
       </Card>
     );

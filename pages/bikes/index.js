@@ -251,7 +251,13 @@ const Bikes = ({ bikes, companies }) => {
 
   if (!filteredBikes.length) {
     bikeOutput = (
-      <Card title="Sorry!" icon="times" color="text-red-500">
+      <Card
+        title="Sorry!"
+        icon="times"
+        color="text-red-500 bg-gray-700"
+        rounded
+        align="center"
+      >
         <p>No eBikes match your criteria. Try changing your filters.</p>
       </Card>
     );

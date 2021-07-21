@@ -106,7 +106,21 @@ const Products = ({ products }) => {
             rounded
             fit="responsive"
             truncate
-            color="text-white bg-yellow-500"
+            color={
+              product.category === 'Bags and Storage'
+                ? 'bg-gray-100 border-t border-b border-blue-200 text-blue-500'
+                : product.category === 'Lights'
+                ? 'bg-gray-100 border-t border-b border-yellow-200 text-yellow-500'
+                : product.category === 'Helmets'
+                ? 'bg-gray-100 border-t border-b border-green-200 text-green-500'
+                : product.category === 'Wheels and Tires'
+                ? 'bg-gray-100 border-t border-b border-purple-200 text-purple-500'
+                : product.category === 'Handlebar Accessories'
+                ? 'bg-gray-100 border-t border-b border-indigo-200 text-indigo-500'
+                : product.category === 'Locks and Security'
+                ? 'bg-gray-100 border-t border-b border-red-200 text-red-500'
+                : 'bg-gray-100 border-t border-b border-gray-200 text-gray-700'
+            }
             icon={
               product.category === 'Bags and Storage'
                 ? 'suitcase'
@@ -137,7 +151,13 @@ const Products = ({ products }) => {
 
   if (!productsState.length) {
     productOutput = (
-      <Card title="Sorry!" icon="times" color="text-red-500">
+      <Card
+        title="Sorry!"
+        icon="times"
+        color="text-red-500 bg-gray-700"
+        rounded
+        align="center"
+      >
         <p>No Products available.</p>
       </Card>
     );

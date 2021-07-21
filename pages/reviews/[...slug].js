@@ -41,7 +41,7 @@ const Review = ({ reviews, params }) => {
     <Layout
       title={`${thisReview.title}`}
       type="review"
-      description={`A list of eBikes made by ${thisReview.title}, an electric review review.`}
+      description={`${thisReview.title}: an eBike review.`}
       image={thisReview.image}
     >
       <article className="">

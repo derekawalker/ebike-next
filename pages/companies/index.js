@@ -54,7 +54,13 @@ const Companies = ({ companies }) => {
 
   if (!companies.length) {
     companyOutput = (
-      <Card title="Sorry!" icon="times" color="text-red-500">
+      <Card
+        title="Sorry!"
+        icon="times"
+        color="text-red-500 bg-gray-700"
+        rounded
+        align="center"
+      >
         <p>No Companies match your criteria. Try changing your filters.</p>
       </Card>
     );
