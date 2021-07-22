@@ -37,7 +37,8 @@ const Product = ({ products, params }) => {
   return (
     <Layout
       title={`${thisProduct.title}`}
-      type="product"
+      type="accessories"
+      breadcrumbs={[{ label: 'accessories', value: 'products' }]}
       description={`Specs and pricing for ${thisProduct.title} by ${thisProduct.manufacturer}.`}
       image={thisProduct.image}
     >

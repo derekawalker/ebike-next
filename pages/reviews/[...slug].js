@@ -40,7 +40,8 @@ const Review = ({ reviews, params }) => {
   return (
     <Layout
       title={`${thisReview.title}`}
-      type="review"
+      type="reviews"
+      breadcrumbs={[{ label: 'reviews', value: 'reviews' }]}
       description={`${thisReview.title}: an eBike review.`}
       image={thisReview.image}
     >

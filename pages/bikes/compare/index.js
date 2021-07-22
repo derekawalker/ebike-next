@@ -134,6 +134,8 @@ const CompareEbikes = () => {
     <Layout
       title="Compare eBikes"
       description="Side-by-side comparison tool for eBikes (electric bikes)."
+      type="bikes"
+      breadcrumbs={[{ label: 'bikes', value: 'bikes' }]}
     >
       <section className={`${variables.sitePadding} ${styles.bikeContainer} `}>
         <div className="flex flex-row overflow-x-auto h-vh70 ">

@@ -1,16 +1,12 @@
 import Head from 'next/head';
-import Breadcrumbs from 'nextjs-breadcrumbs';
 import { useRouter } from 'next/router';
 import siteinfo from '../../lib/siteinfo';
 
 // Components
 import Header from '../Header';
+import Breadcrumbs from '../Breadcrumbs';
 
-// Styles
-import { variables } from '../../styles/style-variables';
-import styles from './styles.module.scss';
-
-const Layout = ({ title, description, type, image, children }) => {
+const Layout = ({ title, description, type, breadcrumbs, image, children }) => {
   const router = useRouter();
 
   return (
@@ -47,24 +43,8 @@ const Layout = ({ title, description, type, image, children }) => {
         />
       </Head>
       <Header />
-      <div className="bg-gray-900 relative sticky top-16 z-40">
-        <div
-          className={`${variables.sitePaddingX} ${
-            styles.breadcrumbs
-          } bg-gray-900 text-gray-400 ${
-            type === 'bike'
-              ? styles.bike
-              : type === 'home'
-              ? styles.home
-              : type === 'review'
-              ? styles.review
-              : type === 'product'
-              ? styles.product
-              : undefined
-          } `}
-        >
-          <Breadcrumbs labelsToUppercase rootLabel="Home" />
-        </div>
+      <div className={`bg-gray-900 relative sticky top-16 z-40 `}>
+        <Breadcrumbs type={type} breadcrumbs={breadcrumbs} />
       </div>
       <main className="bg-gray-200 text-black">{children}</main>
       <footer className="bg-gray-900 text-base font-thin text-white text-center p-4">

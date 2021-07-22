@@ -95,7 +95,8 @@ const Company = ({ companies, bikes, params }) => {
   return (
     <Layout
       title={`${thisCompany.title} eBike Company`}
-      type="company"
+      type="companies"
+      breadcrumbs={[{ label: 'companies', value: 'companies' }]}
       description={`A list of eBikes made by ${thisCompany.title}, an electric bike company.`}
       image={thisCompany.image}
     >

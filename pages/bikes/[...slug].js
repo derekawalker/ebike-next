@@ -142,7 +142,8 @@ const Bike = ({
   return (
     <Layout
       title={`${thisBike.manufacturer}: ${thisBike.title} eBike`}
-      type="bike"
+      type="bikes"
+      breadcrumbs={[{ label: 'bikes', value: 'bikes' }]}
       description={`Specs and pricing for ${thisBike.title} by ${thisBike.manufacturer}.`}
       image={thisBike.image}
     >
