@@ -1,8 +1,12 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-nested-ternary */
 import { useState } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import _ from 'lodash';
 import { formatMoney } from 'accounting';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import ProductFilters from '../../components/ProductFilters';
@@ -174,8 +178,8 @@ const Products = ({ products }) => {
         </h1>
         <p>
           Our products section contains only hand-picked items that we have
-          tested and recommend. Listed products are specific to 20"x4" eBikes
-          where applicable.
+          tested and recommend. Listed products are specific to 20&quot;x4&quot;
+          eBikes where applicable.
         </p>
         <div className="lg:flex">
           <div className="rounded-lg mt-3 px-3 py-2 bg-white border border-gray-300 lg:rounded-none lg:bg-transparent lg:border-0 lg:p-0 lg:w-1/5 lg:mr-4">
@@ -237,3 +241,7 @@ const Products = ({ products }) => {
 Products.propTypes = {};
 
 export default Products;
+
+Products.propTypes = {
+  products: PropTypes.string.isRequired,
+};

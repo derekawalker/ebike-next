@@ -35,6 +35,7 @@ import {
   faLock,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import * as gtag from '../lib/gtag';
 import { BikeWrapper } from '../contexts/bikes';
 import { CompanyWrapper } from '../contexts/companies';
@@ -76,7 +77,7 @@ library.add(
   faCaretDown
 );
 
-const App = ({ Component, pageProps, bikes }) => {
+const App = ({ Component, pageProps }) => {
   const [compareList, setCompareList] = useState([]);
 
   const router = useRouter();
@@ -113,3 +114,8 @@ const App = ({ Component, pageProps, bikes }) => {
 };
 
 export default App;
+
+App.propTypes = {
+  Component: PropTypes.func.isRequired,
+  pageProps: PropTypes.string.isRequired,
+};

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 
@@ -77,6 +78,8 @@ const Reviews = ({ reviews }) => {
   );
 };
 
-Reviews.propTypes = {};
-
 export default Reviews;
+
+Reviews.propTypes = {
+  reviews: PropTypes.string.isRequired,
+};

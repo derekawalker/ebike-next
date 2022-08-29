@@ -1,4 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 const ProgressBar = ({
   title,
@@ -108,3 +110,15 @@ const ProgressBar = ({
 };
 
 export default ProgressBar;
+
+ProgressBar.propTypes = {
+  title: PropTypes.string.isRequired,
+  high: PropTypes.string.isRequired,
+  low: PropTypes.string.isRequired,
+  avg: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  suffix: PropTypes.string.isRequired,
+  prefix: PropTypes.string.isRequired,
+  reverse: PropTypes.string.isRequired,
+};

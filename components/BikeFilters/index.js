@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import selectOptions from './selectOptions';
 import Select from '../Select';
 import * as gtag from '../../lib/gtag';
@@ -5,10 +6,8 @@ import * as gtag from '../../lib/gtag';
 const BikeFilters = ({
   filterSelections,
   setFilterSelections,
-  filtersShow,
   setFiltersShown,
   companiesState,
-  setCompaniesState,
 }) => {
   const handleFilterChange = (event, category) => {
     setFilterSelections({
@@ -185,3 +184,10 @@ const BikeFilters = ({
 };
 
 export default BikeFilters;
+
+BikeFilters.propTypes = {
+  filterSelections: PropTypes.string.isRequired,
+  setFilterSelections: PropTypes.string.isRequired,
+  setFiltersShown: PropTypes.string.isRequired,
+  companiesState: PropTypes.string.isRequired,
+};

@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Select = ({
   name,
@@ -64,3 +65,14 @@ const Select = ({
 };
 
 export default Select;
+
+Select.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  formId: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  onChange: PropTypes.string.isRequired,
+  options: PropTypes.string.isRequired,
+  tooltip: PropTypes.string.isRequired,
+};

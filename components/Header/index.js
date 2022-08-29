@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-gray-800 sticky top-0 relative z-50">
+    <nav className="bg-gray-800 sticky top-0 z-50">
       <div className={variables.sitePaddingX}>
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -88,8 +88,8 @@ const Header = () => {
       {menuIsOpen && (
         <div className="sm:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {links.map((link, index) => (
-              <Link href={link.path} key={index} passHref>
+            {links.map((link) => (
+              <Link href={link.path} key={link.path} passHref>
                 <a
                   href="placeholder"
                   className={`

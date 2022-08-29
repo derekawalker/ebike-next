@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import { variables } from '../../styles/style-variables';
 
@@ -29,3 +30,8 @@ const Breadcrumbs = ({ type, breadcrumbs }) => (
 );
 
 export default Breadcrumbs;
+
+Breadcrumbs.propTypes = {
+  type: PropTypes.string.isRequired,
+  breadcrumbs: PropTypes.string.isRequired,
+};

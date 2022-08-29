@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import selectOptions from './selectOptions';
 import Select from '../Select';
 import * as gtag from '../../lib/gtag';
@@ -5,10 +6,8 @@ import * as gtag from '../../lib/gtag';
 const ProductFilters = ({
   filterSelections,
   setFilterSelections,
-  filtersShow,
   setFiltersShown,
   productsState,
-  setCompaniesState,
 }) => {
   const handleFilterChange = (event, category) => {
     setFilterSelections({
@@ -110,3 +109,10 @@ const ProductFilters = ({
 };
 
 export default ProductFilters;
+
+ProductFilters.propTypes = {
+  filterSelections: PropTypes.string.isRequired,
+  setFilterSelections: PropTypes.string.isRequired,
+  setFiltersShown: PropTypes.string.isRequired,
+  productsState: PropTypes.string.isRequired,
+};

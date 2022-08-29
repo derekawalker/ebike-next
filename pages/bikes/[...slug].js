@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import Stat from '../../components/Stat';
 import selectOptions from '../../components/BikeFilters/selectOptions';
@@ -25,36 +25,32 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-const Bike = ({
-  bikes,
-  params,
-  bikesState,
-  setBikesState,
-  companiesState,
-  setCompaniesState,
-}) => {
+const Bike = ({ bikes, params }) => {
   const bike = _.filter(bikes, (item) => item.bike_id === params.slug[2]);
   const thisBike = bike[0];
 
   let priceTier = 0;
-  for (let index = 0; index < selectOptions.price.length; index++) {
+  for (let index = 0; index < selectOptions.price.length; index += 1) {
     if (thisBike.price >= selectOptions.price[index].value) {
-      priceTier++;
+      priceTier += 1;
     }
   }
 
   const bikeArray = [];
-  bikes.map((bike) => {
+  bikes.map((item) => {
     let bikePriceTier = 0;
-    for (let index = 0; index < selectOptions.price.length; index++) {
-      if (bike.price >= selectOptions.price[index].value) {
-        bikePriceTier++;
+    for (let index = 0; index < selectOptions.price.length; index += 1) {
+      if (item.price >= selectOptions.price[index].value) {
+        bikePriceTier += 1;
       }
     }
 
     if (bikePriceTier === priceTier) {
-      bikeArray.push(bike);
+      bikeArray.push(item);
+      return true;
     }
+
+    return false;
   });
 
   const motorHigh = Math.max(...bikeArray.map((o) => Number(o.motor)));
@@ -134,6 +130,7 @@ const Bike = ({
       </div>
       <div
         className="mb-3 border-t border-gray-300 pt-3"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: thisBike.body }}
       />
     </div>
@@ -313,3 +310,8 @@ export async function getStaticPaths() {
 }
 
 export default Bike;
+
+Bike.propTypes = {
+  bikes: PropTypes.string.isRequired,
+  params: PropTypes.string.isRequired,
+};

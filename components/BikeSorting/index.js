@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import sortOptions from './sortOptions';
 import Select from '../Select';
 
@@ -54,3 +55,8 @@ const BikeSorting = ({ sortSelections, setSortSelections }) => {
 };
 
 export default BikeSorting;
+
+BikeSorting.propTypes = {
+  sortSelections: PropTypes.string.isRequired,
+  setSortSelections: PropTypes.string.isRequired,
+};

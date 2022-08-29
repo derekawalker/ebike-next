@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Card = ({
   icon,
@@ -89,3 +90,17 @@ const Card = ({
 };
 
 export default Card;
+
+Card.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  fit: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+  align: PropTypes.string.isRequired,
+  rounded: PropTypes.string.isRequired,
+  truncate: PropTypes.string.isRequired,
+  iconSize: PropTypes.string.isRequired,
+};

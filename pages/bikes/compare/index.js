@@ -32,7 +32,6 @@ const CompareEbikes = () => {
   }, []);
 
   const handleCompareClick = (id) => {
-    console.log(bikeCompareState);
     if (bikeCompareState.includes(id)) {
       const newList = bikeCompareState.filter((item) => item !== id);
       setBikeCompareState(newList);

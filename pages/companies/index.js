@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import { useCompanyContext } from '../../contexts/companies';
@@ -89,3 +90,7 @@ const Companies = ({ companies }) => {
 Companies.propTypes = {};
 
 export default Companies;
+
+Companies.propTypes = {
+  companies: PropTypes.string.isRequired,
+};

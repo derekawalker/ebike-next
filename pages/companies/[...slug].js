@@ -2,6 +2,7 @@ import _ from 'lodash';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import Stat from '../../components/Stat';
 import Card from '../../components/Card';
@@ -134,6 +135,7 @@ const Company = ({ companies, bikes, params }) => {
           )}
           <div
             className="mb-3 border-t border-gray-300 pt-3"
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: thisCompany.body }}
           />
           <section className="flex flex-row flex-wrap -mx-2 my-2">
@@ -159,3 +161,9 @@ export async function getStaticPaths() {
 }
 
 export default Company;
+
+Company.propTypes = {
+  companies: PropTypes.string.isRequired,
+  bikes: PropTypes.string.isRequired,
+  params: PropTypes.string.isRequired,
+};

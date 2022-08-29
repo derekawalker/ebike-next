@@ -1,11 +1,8 @@
 import _ from 'lodash';
 import Image from 'next/image';
-import Link from 'next/link';
-import { formatMoney } from 'accounting';
+import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import Layout from '../../components/Layout';
-import Stat from '../../components/Stat';
-import Card from '../../components/Card';
 
 // Styles
 import { variables } from '../../styles/style-variables';
@@ -26,10 +23,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Review = ({ reviews, params }) => {
-  console.log(params);
-
   const thisSlug = params.slug[0];
-  console.log(thisSlug);
   const review = _.filter(
     reviews,
     (item) => item.path.substring(1) === thisSlug
@@ -77,6 +71,7 @@ const Review = ({ reviews, params }) => {
           )}
           <div
             className={`${styles.reviewWrapper} mb-3  pt-3`}
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: thisReview.body }}
           />
         </div>
@@ -103,3 +98,8 @@ export async function getStaticPaths() {
 }
 
 export default Review;
+
+Review.propTypes = {
+  reviews: PropTypes.string.isRequired,
+  params: PropTypes.string.isRequired,
+};

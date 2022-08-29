@@ -1,10 +1,8 @@
 import _ from 'lodash';
 import Image from 'next/image';
-import Link from 'next/link';
 import { formatMoney } from 'accounting';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
-import Stat from '../../components/Stat';
-import Card from '../../components/Card';
 
 // Styles
 import { variables } from '../../styles/style-variables';
@@ -75,6 +73,7 @@ const Product = ({ products, params }) => {
           )}
           <div
             className={styles.productWrapper}
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: thisProduct.body }}
           />
         </div>
@@ -101,3 +100,8 @@ export async function getStaticPaths() {
 }
 
 export default Product;
+
+Product.propTypes = {
+  products: PropTypes.string.isRequired,
+  params: PropTypes.string.isRequired,
+};

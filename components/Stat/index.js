@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 
 const Stat = ({ icon, title, color, tooltip, children }) => {
   let tooltipOutput;
@@ -38,3 +39,11 @@ const Stat = ({ icon, title, color, tooltip, children }) => {
 };
 
 export default Stat;
+
+Stat.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  tooltip: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+};

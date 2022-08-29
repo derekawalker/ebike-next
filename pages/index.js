@@ -75,7 +75,9 @@ const Home = () => (
               align="center"
               rounded
             >
-              <p>View a list of eBike accessories for 20"x4" ebikes.</p>
+              <p>
+                View a list of eBike accessories for 20&quot;x4&quot; ebikes.
+              </p>
             </Card>
           </a>
         </Link>
@@ -98,8 +100,8 @@ const Home = () => (
         needs, and which will give you the best bang for your buck.
       </p>
       <p className="mb-3">
-        <strong>Note:</strong> We specialize in bikes with 20"x4" tires, but we
-        may add other electric bike categories in the future.
+        <strong>Note:</strong> We specialize in bikes with 20&quot;x4&quot;
+        tires, but we may add other electric bike categories in the future.
       </p>
     </section>
   </Layout>

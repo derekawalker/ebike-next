@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import siteinfo from '../../lib/siteinfo';
 
 // Components
@@ -43,7 +44,7 @@ const Layout = ({ title, description, type, breadcrumbs, image, children }) => {
         />
       </Head>
       <Header />
-      <div className={`bg-gray-900 relative sticky top-16 z-40 `}>
+      <div className={`bg-gray-900 sticky top-16 z-40 `}>
         <Breadcrumbs type={type} breadcrumbs={breadcrumbs} />
       </div>
       <main className="bg-gray-200 text-black">{children}</main>
@@ -55,3 +56,12 @@ const Layout = ({ title, description, type, breadcrumbs, image, children }) => {
 };
 
 export default Layout;
+
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  breadcrumbs: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+};

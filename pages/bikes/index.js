@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import Link from 'next/link';
 import { formatMoney } from 'accounting';
 import _ from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import BikeFilters from '../../components/BikeFilters';
@@ -348,3 +351,8 @@ const Bikes = ({ bikes, companies }) => {
 Bikes.propTypes = {};
 
 export default Bikes;
+
+Bikes.propTypes = {
+  bikes: PropTypes.string.isRequired,
+  companies: PropTypes.string.isRequired,
+};
